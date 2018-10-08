@@ -1,0 +1,12 @@
+{
+  "user": "模拟用户",
+  "link": [
+    {
+      "name": "商城",
+      "value":"https://www.taobao.com/"
+    }, {
+      "name": "云课堂",
+      "value":"https://study.163.com/"
+    }
+  ]
+}
