@@ -1,0 +1,32 @@
+.carousel{
+    width: 1130px;
+    height: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.img_container{
+    position: relative;
+}
+.img_container> div{
+    display: inline-block;
+}
+.dot{
+    position: relative;
+    width: 100px;
+    height: 12px;
+    z-index: 99;
+    margin: 0 auto;
+    bottom: 40px;
+}
+.dot span{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
+    vertical-align: bottom;
+    background-color: #d0d0d0;
+}
+.dot .current{
+    height: 12px;
+    background-color: seashell;
+}

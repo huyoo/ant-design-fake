@@ -37,7 +37,7 @@ export default class Head extends Component {
         });
 
         return (
-            <header className="base_bg f16">
+            <header className="base_bg f14">
                 <div className="title">
                     {item}
                 </div>
