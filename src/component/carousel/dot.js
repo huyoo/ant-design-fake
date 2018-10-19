@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 
 export default class Dot extends Component{
+
     render(){
         let {current, total, clickHandle} = this.props,
             items =[];

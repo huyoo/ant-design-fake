@@ -7,7 +7,10 @@
     "antd": "^3.6.5",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^3.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

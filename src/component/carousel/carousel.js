@@ -13,6 +13,7 @@ export default class Carousel extends Component{
             total: 0
         };
         this.handelDotClick = this.handelDotClick.bind(this);
+        this.refHb = React.createRef();
     }
     componentDidMount(){
         fetch("/data/imgData.json")
@@ -42,11 +43,14 @@ export default class Carousel extends Component{
         clearTimeout(this.timer);
     }
     handelDotClick(index){
+
         clearTimeout(this.timer);
         this.setState({
             currentIndex: index
         });
     }
+
+
     render(){
         let {item, currentIndex, total} = this.state,
             arr = [],
@@ -56,7 +60,8 @@ export default class Carousel extends Component{
             arr.push(<SliderItem key={index}
                                  href={img.link}
                                  title={img.name}
-                                 src={img.img} />)
+                                 ref={ref => {this.refHb=ref}}
+                                 src={img.img} index={currentIndex}/>)
         });
         animation = {
             width: 1130*total+ "px",
