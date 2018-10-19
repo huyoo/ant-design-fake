@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import Dot from  "./dot"
+import Dot from "./dot"
 import SliderItem from "./sliderItem"
 import "./carousel.css"
 

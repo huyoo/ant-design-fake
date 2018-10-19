@@ -1,5 +1,5 @@
 import React from "react"
-import Label from "../base/label"
+import Label from "../../base/label"
 
 export default class OptionItem extends React.Component{
     render(){

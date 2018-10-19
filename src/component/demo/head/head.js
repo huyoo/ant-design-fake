@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Label from  "../base/label"
+import Label from "../../base/label"
 import './header.css'
 
 //首页顶部链接

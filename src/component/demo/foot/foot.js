@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import Label from  "../base/label"
-import "../../base/style/base.css"
+import Label from "../../base/label"
+import "../../../base/style/base.css"
 import "./foot.css";
 
 //底部
