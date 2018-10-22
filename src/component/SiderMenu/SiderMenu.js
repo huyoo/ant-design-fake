@@ -10,7 +10,7 @@ const {Sider} = Layout;
 export default class SiderMenu extends PureComponent{
     render(){
         return (
-            <Sider className="menu">
+            <Sider className="menu" width={256} breakpoint="lg">
                 <div className="logo">
                     <img src={logo} alt="logo"/>
                     <h1>高仿 Antd Pro</h1>

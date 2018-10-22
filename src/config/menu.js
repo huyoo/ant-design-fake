@@ -24,7 +24,7 @@ export default [
         icon: "form",
         key: 2,
         routes: [{
-            path: "/",
+            path: "/form/basicForm",
             title: "基础表单",
             key: 21,
         }, {

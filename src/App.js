@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import {Router, Route, browserHistory} from "react-router"
 import Home from "./page/Home"
 import ImgPage from "./page/ImgPage"
+import BasicForm from "./page/form/BasicForm"
 import './App.css';
 
 class App extends Component {
@@ -10,10 +11,11 @@ class App extends Component {
       return (
               <Router history={browserHistory}>
                   <Route path="/" component={Home}/>
+                  <Route path="/home" component={Home}/>
+                  <Route path={"/form"}>
+                      <Route path={"/form/basicForm"} component={BasicForm}/>
+                  </Route>
                   <Route path={"/carousel"} component={ImgPage}/>
-                  <Route path={"/head"} component={Home}/>
-                  {/*<Route path="/login" component={}/>*/}
-                  {/*<Route path="*" component={}/>*/}
               </Router>
       )
   }
