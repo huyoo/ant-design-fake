@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import Label from "../../base/label"
-import './header.css'
+import Label from "../../base/LabelItem"
+import './Header.css'
 
 //首页顶部链接
 export default class Head extends Component {

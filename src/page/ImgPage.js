@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react"
-import BasicLayout from "../layout/basicLayout"
-import Carousel from "../component/demo/carousel/carousel"
+import BasicLayout from "../layout/BasicLayout"
+import Carousel from "../component/demo/carousel/Carousel"
 
 export default class ImgPage extends PureComponent{
     render(){

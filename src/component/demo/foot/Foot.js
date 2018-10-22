@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import Label from "../../base/label"
+import Label from "../../base/LabelItem"
 import "../../../base/style/base.css"
-import "./foot.css";
+import "./Foot.css";
 
 //底部
 export default class Foot extends Component{

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // import {Provider} from "react-redux"
 import {Router, Route, browserHistory} from "react-router"
-import Home from "./page/home"
-import ImgPage from "./page/imgPage"
+import Home from "./page/Home"
+import ImgPage from "./page/ImgPage"
 import './App.css';
 
 class App extends Component {

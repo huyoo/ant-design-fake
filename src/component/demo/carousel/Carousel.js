@@ -1,7 +1,7 @@
 import React, {Component} from "react"
-import Dot from "./dot"
-import SliderItem from "./sliderItem"
-import "./carousel.css"
+import Dot from "./Dot"
+import SliderItem from "./SliderItem"
+import "./Carousel.css"
 
 // 走马灯轮播图
 export default class Carousel extends Component{
