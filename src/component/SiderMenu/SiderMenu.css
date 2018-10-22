@@ -1,0 +1,19 @@
+.logo{
+    padding: 15px 10px;
+}
+.logo img{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    transform: rotate(180deg);
+}
+.logo h1{
+    display: inline-block;
+    margin-left: 10px;
+    color:white;
+    font-size: 20px;
+    font-family: "Myriad Pro,Helvetica Neue,Arial,Helvetica,sans-serif";
+}
+.menu{
+    min-height: 100vh;
+}

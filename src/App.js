@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import Head from './component/head/head.js'
-import Foot from './component/foot/foot'
-import Carousel  from "./component/carousel/carousel"
-import Menu from "./component/menu/menu"
-// import logo from './logo.svg';
+// import {Provider} from "react-redux"
+import {Router, Route, browserHistory} from "react-router"
+import Home from "./page/home"
+import ImgPage from "./page/imgPage"
 import './App.css';
 
 class App extends Component {
   render() {
       return (
-          <div>
-              <Head/>
-              <Menu/>
-              <Carousel/>
-              <Foot/>
-          </div>
+              <Router history={browserHistory}>
+                  <Route path="/" component={Home}/>
+                  <Route path={"/carousel"} component={ImgPage}/>
+                  <Route path={"/head"} component={Home}/>
+                  {/*<Route path="/login" component={}/>*/}
+                  {/*<Route path="*" component={}/>*/}
+              </Router>
       )
   }
 }
