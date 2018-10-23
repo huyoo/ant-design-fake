@@ -1,5 +1,5 @@
 .logo{
-    padding: 15px 36px;
+    padding: 15px 28px;
 }
 .logo img{
     display: inline-block;
@@ -15,6 +15,7 @@
     font-family: "Myriad Pro,Helvetica Neue,Arial,Helvetica,sans-serif";
 }
 .menu{
+    z-index: 99;
     min-height: 100vh;
     box-shadow: 2px 0 6px rgba(0,21,41,.35);
 }

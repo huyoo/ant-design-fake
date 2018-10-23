@@ -4,8 +4,8 @@ import "antd/dist/antd.css"
 import {Layout} from "antd"
 
 const {Header} = Layout;
-const style= {
-    zIndex: 99,
+const style = {
+    zIndex: 9,
     boxShadow: "0 1px 3px rgba(0,21,41,.15)",
     backgroundColor: "white"
 };
