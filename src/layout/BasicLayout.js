@@ -3,8 +3,9 @@ import {Layout} from "antd"
 import "antd/dist/antd.css"
 import  SiderMenu from "../component/SiderMenu/SiderMenu"
 import ContentHeader from "../component/ContentHeader/ContentHeader"
+import Foot from "../component/Foot/Foot"
 
-const { Content} = Layout;
+const { Content, Footer} = Layout;
 
 export default class BasicLayout extends PureComponent{
     render(){
@@ -14,6 +15,9 @@ export default class BasicLayout extends PureComponent{
                 <Layout>
                     <ContentHeader/>
                     <Content>{this.props.children}</Content>
+                    <Footer>
+                        <Foot/>
+                    </Footer>
                 </Layout>
             </Layout>
         )
