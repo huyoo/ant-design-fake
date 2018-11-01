@@ -32,12 +32,12 @@ export default [
             title: "分步表单",
             key: 22,
         }]
-    }, /*{
+    }, {
         title: "列表页",
         icon: "table",
         key: 3,
         routes: [{
-            path: "/",
+            path: "/list/table-list",
             title: "查询表格",
             key: 31,
         }, {
@@ -65,7 +65,7 @@ export default [
                 key: 343,
             }]
         }]
-    }, */{
+    }, {
         title: "demo",
         icon: "gift",
         key: 9,

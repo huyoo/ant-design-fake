@@ -22,7 +22,8 @@ const formItemLayout = {
     }
 };
 
-class Forms extends Component{
+@Form.create()
+class BasicForm extends Component{
     handleSubmit = e => {
         e.preventDefault();
 
@@ -156,5 +157,5 @@ class Forms extends Component{
         )
     }
 }
-const BasicForm = Form.create({})(Forms);
+
 export default BasicForm;
