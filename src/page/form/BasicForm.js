@@ -1,9 +1,12 @@
 import React, {Component} from "react"
+import {connect} from "react-redux"
 import {Form, Breadcrumb, Input, InputNumber, Button, Icon, Tooltip, DatePicker, Radio} from "antd"
 import "antd/dist/antd.css"
 import BasicLayout from "../../layout/BasicLayout"
 import "./BasicForm.css"
 import locale from "antd/lib/date-picker/locale/zh_CN"
+
+import Label from "../../component/base/LabelItem"
 
 const { Item} = Form,
     { TextArea} = Input,
@@ -22,21 +25,27 @@ const formItemLayout = {
     }
 };
 
+
+
 @Form.create()
-class BasicForm extends Component{
+@connect(state => state)
+export default class BasicForm extends Component{
     handleSubmit = e => {
         e.preventDefault();
 
-        const {form } = this.props;
+        const {form, dispatch } = this.props;
 
         form.validateFieldsAndScroll((err, value) => {
             if (!err) {
-                console.log(value);
+                dispatch({
+                    type: "ADD_ITEM",
+                    payload: {...value}
+                })
             }
         });
     };
     render(){
-        const { getFieldDecorator} = this.props.form;
+        const { form:{getFieldDecorator}, formState} = this.props;
 
         return (
             <BasicLayout>
@@ -51,8 +60,8 @@ class BasicForm extends Component{
                 </div>
                 <div className="basic_form">
                     <Form onSubmit={this.handleSubmit}>
-                        <Item {...formItemLayout} label="标题">
-                            {getFieldDecorator("title", {
+                        <Item {...formItemLayout}  label="标题">
+                            {getFieldDecorator("name", {
                                 rules: [{
                                     min: 3,
                                 },{
@@ -63,8 +72,9 @@ class BasicForm extends Component{
                                 },{
                                     whitespace: false,
                                     message: "禁止使用空格"
-                                }]
-                            })(<Input placeholder="给目标起个名字"/>)}
+                                }],
+                                initialValue: this.props.formState.name
+                            })(<Input  placeholder="给目标起个名字"/>)}
                         </Item>
                         <Item {...formItemLayout} label="起止日期">
                             {getFieldDecorator(["date1", "date2"], {
@@ -151,11 +161,9 @@ class BasicForm extends Component{
                     </Form>
                 </div>
                 <div>
-
+                    <Label name={formState.name} />
                 </div>
             </BasicLayout>
         )
     }
 }
-
-export default BasicForm;

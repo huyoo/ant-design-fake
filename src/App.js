@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import {Provider} from "react-redux"
+import {Provider} from "react-redux"
+import store from "./model/reducer/index"
 import {Router, Route, browserHistory} from "react-router"
 import Home from "./page/Home"
 import ImgPage from "./page/ImgPage"
@@ -7,9 +8,11 @@ import BasicForm from "./page/form/BasicForm"
 import TableList from "./page/list/TableList"
 import './App.css';
 
-class App extends Component {
+
+export default class App extends Component {
   render() {
       return (
+          <Provider store={store}>
               <Router history={browserHistory}>
                   <Route path="/" component={Home}/>
                   <Route path="/home" component={Home}/>
@@ -21,8 +24,7 @@ class App extends Component {
                   </Route>
                   <Route path={"/carousel"} component={ImgPage}/>
               </Router>
+          </Provider>
       )
   }
 }
-
-export default App;

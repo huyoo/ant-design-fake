@@ -63,7 +63,7 @@ export default class TableList extends React.Component{
                 </div>
 
                 <div className="table_list">
-                    <Table rowKey={ record => {console.log(record); return record.key}} loading={false} dataSource={dataSource} columns={columns} />
+                    <Table rowKey={ record => {{/*console.log(record);*/} return record.key}} loading={false} dataSource={dataSource} columns={columns} />
                 </div>
             </BasicLayout>
         )
