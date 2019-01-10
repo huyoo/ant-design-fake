@@ -1,17 +1,18 @@
 import React, {Component} from "react"
 import {connect} from "react-redux"
-import {Form, Breadcrumb, Input, InputNumber, Button, Icon, Tooltip, DatePicker, Radio} from "antd"
+import {Form, Breadcrumb, Input, InputNumber, Button, Icon, Tooltip, DatePicker, Radio, Select} from "antd"
 import "antd/dist/antd.css"
-import BasicLayout from "../../layout/BasicLayout"
+import BasicLayout from "../../../layout/BasicLayout"
 import "./BasicForm.css"
 import locale from "antd/lib/date-picker/locale/zh_CN"
 
-import Label from "../../component/base/LabelItem"
+import Label from "../../../component/base/LabelItem"
 
 const { Item} = Form,
     { TextArea} = Input,
     { RangePicker } = DatePicker,
-    { Group} = Radio;
+    { Group} = Radio,
+    {Option} = Select;
 
 const formItemLayout = {
     labelCol: {
@@ -45,7 +46,7 @@ export default class BasicForm extends Component{
         });
     };
     render(){
-        const { form:{getFieldDecorator}, formState} = this.props;
+        const { form:{getFieldDecorator, getFieldValue}, formState} = this.props;
 
         return (
             <BasicLayout>
@@ -135,20 +136,41 @@ export default class BasicForm extends Component{
                             )}
                             <span className="ant-form-text">%</span>
                         </Item>
-                        <Item {...formItemLayout} label="目标公开">
-                            <Group defaultValue={1} options={
-                                [{
-                                    label: "公开",
-                                    value: 1
-                                }, {
-                                    label: "部分公开",
-                                    value: 2
-                                },{
-                                    label: "不公开",
-                                    value: 3
-                                }]}
-                            />
+                        <Item {...formItemLayout}
+                              label="目标公开"
+                              help="客户、邀评人默认被分享">
+                            <div>{
+                                getFieldDecorator("public", {
+                                    initialValue:1
+                                })(<Group options={
+                                    [{
+                                        label: "公开",
+                                        value: 1
+                                    }, {
+                                        label: "部分公开",
+                                        value: 2
+                                    },{
+                                        label: "不公开",
+                                        value: 3
+                                    }]}
+                                />)
+                            }
+                                <Item style={{
+                                    marginBottom: 0,
+                                    display: getFieldValue("public") === 2 ? "block": "none"
+                                }}>
+                                    {
+                                        getFieldDecorator("publicUsers", {})(
+                                            <Select mode="multiple" placeholder="公开给">
+                                                <Option value="1">同事甲</Option>
+                                                <Option value="2">同事乙</Option>
+                                                <Option value="3">同事丙</Option>
+                                            </Select>)
+                                    }
+                                </Item>
+                            </div>
                         </Item>
+
                         <Item wrapperCol={
                             {
                                 xs:{ span: 12, offset: 6},
@@ -159,9 +181,6 @@ export default class BasicForm extends Component{
                             <Button>取消</Button>
                         </Item>
                     </Form>
-                </div>
-                <div>
-                    <Label name={formState.name} />
                 </div>
             </BasicLayout>
         )

@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react"
 import {Icon} from "antd"
-import {Link} from "react-router"
+import {Link} from "react-router-dom"
 import "./Foot.css"
 
 export default class Foot extends PureComponent{

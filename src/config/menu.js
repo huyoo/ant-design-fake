@@ -1,78 +1,85 @@
+import BasicForm from "../page/form/BasicForm/BasicForm";
+import TableList from "../page/list/TableList";
+import ImgPage from "../page/ImgPage";
+import Home from "../page/Home";
+
 /**
  * 菜单配置文件
  */
 export default [
     /*{
-        title: "dashboard",
+        name: "dashboard",
         icon: "dashboard",
-        key: 1,
+        
         routes: [{
             path: "/",
-            title: "分析页",
-            key: 11,
+            name: "分析页",
+            
         }, {
             path: "/",
-            title: "监控页",
-            key: 12,
+            name: "监控页",
+            
         }, {
             path: "/",
-            title: "工作台",
-            key: 13,
+            name: "工作台",
+            
         }]
     },*/ {
-        title: "表单页",
+        name: "表单页",
         icon: "form",
-        key: 2,
         routes: [{
             path: "/form/basicForm",
-            title: "基础表单",
-            key: 21,
+            component: BasicForm,
+            name: "基础表单",
         }, {
-            path: "/",
-            title: "分步表单",
-            key: 22,
+            // path: "/",
+            name: "分步表单",
         }]
     }, {
-        title: "列表页",
+        name: "列表页",
         icon: "table",
-        key: 3,
         routes: [{
+            name: "查询表格",
             path: "/list/table-list",
-            title: "查询表格",
-            key: 31,
-        }, {
-            path: "/",
-            title: "标准列表",
-            key: 32,
-        }, {
-            path: "/",
-            title: "卡片列表",
-            key: 33,
-        }, {
-            title: "搜索列表",
-            key: 34,
+            component: TableList,
+            hideChildInMenu: true,
             routes: [{
-                path: "/",
-                title: "搜索列表(项目)",
-                key: 341,
+                name: "查询表格",
+                path: "/list/table-list",
+                component: TableList,
+            }]
+        }, {
+            // path: "/",
+            name: "标准列表",
+        }, {
+            // path: "/",
+            name: "卡片列表",
+        }, {
+            name: "搜索列表",
+            // hideChildInMenu: true,
+            routes: [{
+                // path: "/",
+                name: "搜索列表(项目)",
             }, {
-                path: "/",
-                title: "搜索列表(文章)",
-                key: 342,
+                // path: "/",
+                name: "搜索列表(文章)",
             }, {
-                path: "/",
-                title: "搜索列表(应用)",
-                key: 343,
+                // path: "/",
+                name: "搜索列表(应用)",
             }]
         }]
     }, {
-        title: "demo",
+        name: "demo",
         icon: "gift",
-        key: 9,
         routes: [{
             path: "/carousel",
-            title: "轮滚图",
-            key: 91,
+            name: "轮滚图",
+            component: ImgPage,
         }]
+    },{
+        name: "首页",
+        hideInMenu: true,
+        path: "/",
+        component: Home
     }
 ]

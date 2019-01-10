@@ -1,49 +1,76 @@
 import React, {Component} from "react"
 import {Menu, Icon} from "antd"
-import {Link} from "react-router"
+import {Link} from "react-router-dom"
 import menuData from "../../config/menu"
 
 const {Item, SubMenu} = Menu;
 
-//路径
-const getItemPath = ({path, title}) => {
-    return (<Link to={path}>{ title }</Link>)
-};
-//图标
-const getIcon = icon => {
-    return (<Icon type={icon} theme="outlined"/> )
-};
-//根据数据path和routes判断并生成子节点菜单和根节点菜单
-const getSubMenuOrItem = item => {
-    if(item.path){
-        return (<Item key={item.key}>{ getItemPath(item) }</Item>)
-    } else if(item.routes && item.routes instanceof Array) {
-        return (
-            <SubMenu key={item.key}
-                     title={(item.icon?(<span>{getIcon(item.icon)}<span>{item.title}</span></span>):item.title)}>
-                {createMenu(item.routes)}
-            </SubMenu>
-        )
-    }
-
-    return [];
-};
-//遍历菜单数据，生成组件
-const createMenu = menuData => {
-    if(!menuData){
-        return [];
-    }
-    return menuData.map(item => {
-        return getSubMenuOrItem(item)
-    });
-};
-
 export default class BaseMenu extends Component{
     render(){
+
         return (
             <Menu theme="dark" mode="inline">
-                {createMenu(menuData)}
+                { createMenu(formatter(menuData)) }
             </Menu>
         )
     }
 }
+
+function createMenu(menu, i='0') {
+    return menu.map((item, index) => {
+        const {
+                path,
+                children,
+                icon,
+                name
+            } = item,
+            key = i+index+"";
+
+        if(path){
+            return <Item key={key}> { getLink(item)}</Item>;
+        } else if(children) {
+
+            return <SubMenu key={key} title={(icon? (<span>{getIcon(icon)}<span>{name}</span></span>) :name)}>
+                {createMenu(children, key)}
+            </SubMenu>;
+        }
+        return null;
+    }).filter(e => e);
+}
+
+//遍历菜单数据，生成组件
+const formatter = menu => {
+    if(!menu) return [];
+
+    return menu.map(item => {
+        const {
+                path,
+                hideInMenu,
+                hideChildInMenu,
+                routes,
+                name
+            } = item;
+        if(!name || hideInMenu || (!path && !routes))
+            return null;
+
+        let result = {
+            ...item
+        };
+        if(!hideChildInMenu && routes){
+            result.children = formatter(routes);
+        }
+        delete result.routes;
+        delete result.component;
+
+        return result;
+    }).filter(e => e);
+};
+
+//路径
+const getLink= ({path, name}) => {
+    return <Link to={path||null}>{ name }</Link>
+};
+//图标
+const getIcon = icon => {
+    return <Icon type={icon} theme="outlined"/>
+};
