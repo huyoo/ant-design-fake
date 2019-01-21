@@ -64,10 +64,6 @@ export default class BasicForm extends Component{
                         <Item {...formItemLayout}  label="标题">
                             {getFieldDecorator("name", {
                                 rules: [{
-                                    min: 3,
-                                },{
-                                    max: 5
-                                },{
                                     required: true,
                                     message: "标题不能为空"
                                 },{

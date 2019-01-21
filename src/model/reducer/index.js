@@ -1,10 +1,7 @@
-import {createStore, combineReducers} from "redux"
-import {add} from "../action/FormAction"
+import {combineReducers} from "redux"
+import stepForm from "../../page/form/StepForm/model/Action"
+import form from "../action/FormAction"
 
-
-const initialList = (state = {}, action) => state;
-
-export default createStore(combineReducers({
-    formState: add,
-    list: initialList
-}));
+export default combineReducers({
+    stepForm, form
+});

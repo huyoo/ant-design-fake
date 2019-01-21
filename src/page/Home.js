@@ -6,7 +6,7 @@ export default class Home extends PureComponent{
     render(){
         return (
             <BasicLayout>
-                <Head/>
+                <div/>
             </BasicLayout>
         )
     }

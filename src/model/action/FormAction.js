@@ -5,7 +5,7 @@ const initialForm = {
     rate: "132"
 };
 
-export function add(state = initialForm, action) {
+export default function add(state = initialForm, action) {
     switch (action.type){
         case ADD_ITEM: {
             return {

@@ -2,6 +2,9 @@ import BasicForm from "../page/form/BasicForm/BasicForm";
 import TableList from "../page/list/TableList";
 import ImgPage from "../page/ImgPage";
 import Home from "../page/Home";
+import StepInfoForm from "../page/form/StepForm/Step1";
+import StepConfirmForm from "../page/form/StepForm/Step2";
+import StepResult from "../page/form/StepForm/Step3";
 
 /**
  * 菜单配置文件
@@ -28,12 +31,24 @@ export default [
         name: "表单页",
         icon: "form",
         routes: [{
-            path: "/form/basicForm",
+            path: "/form/basic-form",
             component: BasicForm,
             name: "基础表单",
         }, {
-            // path: "/",
+            path: "/form/step-form/info",
             name: "分步表单",
+            component: StepInfoForm,
+            hideChildInMenu: true,
+            routes: [{
+                path: "/form/step-form/info",
+                component: StepInfoForm,
+            },{
+                path: "/form/step-form/confirm",
+                component: StepConfirmForm,
+            },{
+                path: "/form/step-form/result",
+                component: StepResult,
+            }]
         }]
     }, {
         name: "列表页",
