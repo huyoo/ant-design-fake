@@ -29,7 +29,7 @@ const formItemLayout = {
 
 
 @Form.create()
-@connect(state => state)
+@connect(state => ({formState: state.form}))
 export default class BasicForm extends Component{
     handleSubmit = e => {
         e.preventDefault();
@@ -103,7 +103,7 @@ export default class BasicForm extends Component{
                             <span>客户
                                 <span style={{color: "grey"}}>&nbsp;&nbsp;(选填)&nbsp;</span>
                                 <Tooltip title="目标的服务对象">
-                                    <Icon type="info-circle-o" style={{color:"grey"}} />
+                                    <Icon type="info-circle-o" style={{color:"grey"}}/>
                                 </Tooltip>
                             </span>
                         }>

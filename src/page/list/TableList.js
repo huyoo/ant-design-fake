@@ -1,22 +1,9 @@
 import React from "react"
-import {Table, Breadcrumb} from "antd"
-import "antd/dist/antd.css"
+import {Table, Breadcrumb, message} from "antd"
 import BasicLayout from "../../layout/BasicLayout"
 import "./TableList.css"
-
-const dataSource = [
-    {
-        key: '1',
-        name: '胡彦斌',
-        age: 32,
-        // address: '西湖区湖底公园1号'
-    }, {
-        key: '2',
-        name: '胡彦祖',
-        age: 42,
-        // address: '西湖区湖底公园1号'
-    }];
-
+import axios from "axios";
+import "../../mock/table"
 
 const columns = [
     {
@@ -40,8 +27,25 @@ export default class TableList extends React.Component{
         this.state = {
             selectedRowKeys: [],
             onChange: this.OnChange,
-            type: "checkbox"
+            type: "checkbox",
+            data: [],
+            loading: true
         }
+    };
+
+    componentDidMount(){
+        this.getList();
+    }
+    getList = () => {
+        axios.post("/list-page")
+            .then(re => re.data)
+            .then(re => {
+                this.setState({
+                    data: re.data,
+                    loading: false
+                })
+            })
+            .catch(re => { message.error("获取数据异常") })
     };
 
     OnChange = (selectedRowKeys, selectedRows) => {
@@ -51,6 +55,7 @@ export default class TableList extends React.Component{
     };
 
     render(){
+        const {data, loading} = this.state;
         return (
             <BasicLayout>
                 <div className="head">
@@ -63,7 +68,10 @@ export default class TableList extends React.Component{
                 </div>
 
                 <div className="table_list">
-                    <Table rowKey={ record => {{/*console.log(record);*/} return record.key}} loading={false} dataSource={dataSource} columns={columns} />
+                    <Table rowKey={ record => record.key}
+                           loading={loading}
+                           dataSource={data}
+                           columns={columns} />
                 </div>
             </BasicLayout>
         )

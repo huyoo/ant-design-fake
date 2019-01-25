@@ -2,7 +2,7 @@ const ADD_ITEM = 'ADD_ITEM';
 
 const initialForm = {
     name: '111',
-    rate: "132"
+    rate: 12.5
 };
 
 export default function add(state = initialForm, action) {
@@ -10,7 +10,6 @@ export default function add(state = initialForm, action) {
         case ADD_ITEM: {
             return {
                 ...state,
-                name: action.payload.name+"test"
             }
         }
         default:{
