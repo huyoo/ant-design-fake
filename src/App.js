@@ -6,6 +6,8 @@ import Route from "./config/router.config"
 import {BrowserRouter, Switch,} from "react-router-dom"
 import {createStore} from "redux";
 
+require("./mock");
+
 let store = createStore(combineReducer);
 
 export default class App extends Component {

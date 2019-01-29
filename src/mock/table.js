@@ -1,20 +1,17 @@
-/**
- * create by huyu_ ON 2019/1/24
- */
-import Mock from "mockjs"
 
-Mock.mock("/list-page", {
-    data: [{
-        key: '1',
-        name: '胡彦斌',
-        age: 32,
-        address: '西湖区湖底公园1号'
-    }, {
-        key: '2',
-        name: '胡彦祖',
-        age: 42,
-        address: '西湖区湖底公园1号'
-    }]
-});
+const path="/api";
 
-Mock.setup({timeout: 2000});
+export default {
+    [`${path}/list-page`]: {
+        'data|1-10': [{
+            'key|+1': 1,
+            'name': '@cname',
+            'age|10-50': 0,
+            'address': '@city(true)'
+        }]
+    },
+    [`${path}/getForm`]: {
+        name: 1,
+        value: 1
+    }
+}

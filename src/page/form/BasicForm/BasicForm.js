@@ -1,18 +1,15 @@
 import React, {Component} from "react"
 import {connect} from "react-redux"
-import {Form, Breadcrumb, Input, InputNumber, Button, Icon, Tooltip, DatePicker, Radio, Select} from "antd"
-import "antd/dist/antd.css"
+import {Breadcrumb, Button, DatePicker, Form, Icon, Input, InputNumber, Radio, Select, Tooltip, message} from "antd"
 import BasicLayout from "../../../layout/BasicLayout"
 import "./BasicForm.css"
-import locale from "antd/lib/date-picker/locale/zh_CN"
-
-import Label from "../../../component/base/LabelItem"
+import axios from "axios/index";
 
 const { Item} = Form,
     { TextArea} = Input,
     { RangePicker } = DatePicker,
     { Group} = Radio,
-    {Option} = Select;
+    { Option} = Select;
 
 const formItemLayout = {
     labelCol: {
@@ -26,11 +23,20 @@ const formItemLayout = {
     }
 };
 
-
-
 @Form.create()
 @connect(state => ({formState: state.form}))
 export default class BasicForm extends Component{
+    componentDidMount(){
+        this.getList();
+    }
+    getList = () => {
+        axios.post("/api/getForm")
+            .then(re => {
+                message.info('数据获取：'+JSON.stringify(re.data));
+            })
+            .catch(re => { message.error("获取数据异常") })
+    };
+
     handleSubmit = e => {
         e.preventDefault();
 
@@ -79,7 +85,7 @@ export default class BasicForm extends Component{
                                     required: true,
                                     message: "起止日期不能为空"
                                 }]
-                            })(<RangePicker style={{width: "100%"}} locale={locale} />)}
+                            })(<RangePicker style={{width: "100%"}} />)}
                         </Item>
                         <Item {...formItemLayout} label="目标描述">
                             {getFieldDecorator("desc", {

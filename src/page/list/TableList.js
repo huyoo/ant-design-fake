@@ -3,23 +3,28 @@ import {Table, Breadcrumb, message} from "antd"
 import BasicLayout from "../../layout/BasicLayout"
 import "./TableList.css"
 import axios from "axios";
-import "../../mock/table"
 
 const columns = [
     {
+        title: "序号",
+        key: "key",
+        dataIndex: "key",
+        width: '20%'
+    }, {
         title: "姓名",
         key: "name",
-        dataIndex: "name"
+        dataIndex: "name",
+        width: '20%'
     }, {
         title: "年龄",
         key: "age",
-        dataIndex: "age"
-    }/*, {
-        title: "序号",
-        key: "key",
-        dataIndex: "key"
-    }*/
-];
+        dataIndex: "age",
+        width: '20%'
+    },{
+        title: "地址",
+        key: "address",
+        dataIndex: 'address'
+    }];
 
 export default class TableList extends React.Component{
     constructor(){
@@ -37,7 +42,7 @@ export default class TableList extends React.Component{
         this.getList();
     }
     getList = () => {
-        axios.post("/list-page")
+        axios.post("/api/list-page")
             .then(re => re.data)
             .then(re => {
                 this.setState({

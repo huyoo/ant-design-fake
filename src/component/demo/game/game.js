@@ -1,5 +1,5 @@
 /**
- * author: hy
+ * author: huyoo
  * decs: 3x3五子棋
  * time: 2018/9/9
  */

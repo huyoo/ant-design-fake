@@ -1,6 +1,6 @@
 /**
  * Router生成
- * create by huyu_ ON 2019/1/9
+ * create by huyoo ON 2019/1/9
  */
 import {Route} from "react-router-dom"
 import menu from "./menu";
