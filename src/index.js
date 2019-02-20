@@ -9,6 +9,6 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
     <LocaleProvider locale={locale}>
-        <App />
+        <App/>
     </LocaleProvider>, document.getElementById('root'));
 registerServiceWorker();

@@ -1,7 +1,7 @@
 import React, {PureComponent} from "react"
 import {Layout} from "antd"
 import BaseMenu from "./BaseMenu"
-import style from "./SideMenu.less"
+import "./SideMenu.less"
 import logo from "../../asset/logo.svg"
 
 const {Sider} = Layout;
@@ -16,7 +16,7 @@ export default class SiderMenu extends PureComponent{
     }
     render(){
         return (
-            <Sider className={style.menu} width={256} breakpoint="lg" >
+            <Sider className="menu" width={256} breakpoint="lg" >
                 <div className='logo'>
                     <img src={logo} alt="logo"/>
                     <h1>Ant Design Pro</h1>
