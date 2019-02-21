@@ -1,5 +1,5 @@
 import React from "react"
-import {Table, Breadcrumb, message} from "antd"
+import {Breadcrumb, message, Table} from "antd"
 import BasicLayout from "../../layout/BasicLayout"
 import "./TableList.css"
 import axios from "axios";
@@ -71,7 +71,6 @@ export default class TableList extends React.Component{
                     </Breadcrumb>
                     <div className="title">查询表格</div>
                 </div>
-
                 <div className="table_list">
                     <Table rowKey={ record => record.key}
                            loading={loading}

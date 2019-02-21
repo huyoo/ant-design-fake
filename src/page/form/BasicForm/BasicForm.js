@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import {connect} from "react-redux"
+import intl from "react-intl-universal"
 import {Breadcrumb, Button, DatePicker, Form, Icon, Input, InputNumber, Radio, Select, Tooltip, message} from "antd"
 import BasicLayout from "../../../layout/BasicLayout"
 import "./BasicForm.css"
@@ -67,79 +68,80 @@ export default class BasicForm extends Component{
                 </div>
                 <div className="basic_form">
                     <Form onSubmit={this.handleSubmit}>
-                        <Item {...formItemLayout}  label="标题">
+                        <Item {...formItemLayout}  label={intl.get('form.title.label')}>
                             {getFieldDecorator("name", {
                                 rules: [{
                                     required: true,
-                                    message: "标题不能为空"
+                                    message:  intl.get('validation.title.required')
                                 },{
                                     whitespace: false,
                                     message: "禁止使用空格"
                                 }],
                                 initialValue: this.props.formState.name
-                            })(<Input  placeholder="给目标起个名字"/>)}
+                            })(<Input  placeholder={intl.get('form.title.placeholder')}/>)}
                         </Item>
-                        <Item {...formItemLayout} label="起止日期">
+                        <Item {...formItemLayout} label={intl.get('form.date.label')}>
                             {getFieldDecorator(["date1", "date2"], {
                                 rules: [{
                                     required: true,
-                                    message: "起止日期不能为空"
+                                    message: intl.get('validation.date.required')
                                 }]
                             })(<RangePicker style={{width: "100%"}} />)}
                         </Item>
-                        <Item {...formItemLayout} label="目标描述">
+                        <Item {...formItemLayout} label={intl.get('form.goal.label')}>
                             {getFieldDecorator("desc", {
                                 rules: [{
 
                                 }, {
                                     required: true,
-                                    message: "目标描述不能为空"
+                                    message: intl.get('validation.goal.required')
                                 }]
-                            })(<TextArea placeholder="请输入你的阶段性工作目标" rows={4}/>)}
+                            })(<TextArea placeholder={intl.get('form.goal.placeholder')} rows={4}/>)}
                         </Item>
-                        <Item {...formItemLayout} label="衡量标准">
+                        <Item {...formItemLayout} label={intl.get('form.standard.label')}>
                             {getFieldDecorator("standard", {
                                 rules: [{
                                     required: true,
-                                    message: "衡量标准不能为空"
+                                    message: intl.get('validation.standard.required')
                                 }]
-                            })(<TextArea placeholder="请输入衡量标准" rows={4} />)}
+                            })(<TextArea placeholder={intl.get('form.standard.placeholder')}
+                                         rows={4} />)}
                         </Item>
                         <Item {...formItemLayout} label={
-                            <span>客户
+                            <span>{intl.get('form.client.label')}
                                 <span style={{color: "grey"}}>&nbsp;&nbsp;(选填)&nbsp;</span>
-                                <Tooltip title="目标的服务对象">
+                                <Tooltip title={intl.get('form.client.label.tooltip')}>
                                     <Icon type="info-circle-o" style={{color:"grey"}}/>
                                 </Tooltip>
                             </span>
                         }>
                             {getFieldDecorator("customer", {})(
-                                <Input placeholder="请描述你服务的客户，内部客户直接@姓名/工号"/>
+                                <Input placeholder={intl.get('form.client.placeholder')}/>
                             )}
                         </Item>
                         <Item {...formItemLayout} label={
                             <span>
-                                邀评人
+                                {intl.get('form.invites.label')}
                                 <span style={{color:"grey"}}>&nbsp;&nbsp;(选填)&nbsp;</span>
                             </span>
                         }>
                             {getFieldDecorator("evaluator", {})(
-                                <Input placeholder="请直接@姓名/工号，最多可邀请5人"/>
+                                <Input placeholder={intl.get('form.invites.placeholder')}/>
                             )}
                         </Item>
                         <Item {...formItemLayout} label={
                             <span>
-                                权重
+                                {intl.get('form.weight.label')}
                                 <span style={{color:"grey"}}>&nbsp;&nbsp;(选填)&nbsp;</span>
                             </span>
                         }>
                             {getFieldDecorator("rate", {})(
-                                <InputNumber placeholder="请输入" min={0} max={100} />
+                                <InputNumber placeholder={intl.get('form.weight.placeholder')} min={0} max={100} />
                             )}
                             <span className="ant-form-text">%</span>
                         </Item>
                         <Item {...formItemLayout}
-                              label="目标公开"
+                              label={intl.get('form.public.label')}
                               help="客户、邀评人默认被分享">
                             <div>{
                                 getFieldDecorator("public", {
@@ -179,8 +181,8 @@ export default class BasicForm extends Component{
                                 sm: { span: 16, offset: 8}
                             }
                         }>
-                            <Button type="primary" htmlType="submit">提交</Button>
-                            <Button>取消</Button>
+                            <Button type="primary" htmlType="submit">{intl.get('form.submit')}</Button>
+                            <Button>{intl.get('form.save')}</Button>
                         </Item>
                     </Form>
                 </div>

@@ -8,7 +8,7 @@ const {Sider} = Layout;
 
 export default class SiderMenu extends PureComponent{
     constructor(props){
-        super();
+        super(props);
         this.state = {
             theme: "light",
             inlineCollapsed: false,

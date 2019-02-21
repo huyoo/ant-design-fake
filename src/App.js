@@ -4,7 +4,7 @@ import intl from "react-intl-universal"
 import Route from "./config/router.config"
 import {BrowserRouter, Switch,} from "react-router-dom"
 import {createStore} from "redux";
-import combineReducer from "./model/reducer/index"
+import combineReducer from "./CombineReducer"
 import './App.css';
 import zh_CN from "./locale/zh_CN";
 import en_US from "./locale/en_US"
