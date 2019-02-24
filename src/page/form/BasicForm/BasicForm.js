@@ -35,7 +35,7 @@ export default class BasicForm extends Component{
             .then(re => {
                 message.info('数据获取：'+JSON.stringify(re.data));
             })
-            .catch(re => { message.error("获取数据异常") })
+            .catch(() => { message.error("获取数据异常") })
     };
 
     handleSubmit = e => {
@@ -53,7 +53,7 @@ export default class BasicForm extends Component{
         });
     };
     render(){
-        const { form:{getFieldDecorator, getFieldValue}, formState} = this.props;
+        const { form:{getFieldDecorator, getFieldValue}} = this.props;
 
         return (
             <BasicLayout>

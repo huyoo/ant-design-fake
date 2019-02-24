@@ -1,0 +1,55 @@
+@import "../../base/style/baseStyle";
+
+@base_pad: 20px;
+
+.analysis_head {
+  padding: @base_pad;
+  div:first-child {
+    & > div {
+      padding-right: @base_pad;
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+  .analysis_card_title {
+    .baseTipFont()
+  }
+  .analysis_card_content {
+    height: 38px;
+    margin-top: 4px;
+    margin-bottom: 0;
+    overflow: hidden;
+    color: rgba(0, 0, 0, .85);
+    font-size: 30px;
+    line-height: 38px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+  }
+  .analysis_card_chart {
+    height: 46px;
+    line-height: 46px;
+  }
+  .analysis_card_foot {
+    .baseFont();
+    border-top: 1px solid #e8e8e8;
+    line-height: 40px;
+  }
+}
+
+.analysis_tab {
+  margin-left: @base_pad;
+  margin-right: @base_pad;
+  background-color: white;
+  .ant-card-body {
+    padding: 0;
+    .ant-tabs-nav-container {
+      padding: 10px 0 0 20px;
+      font-size: 16px;
+    }
+  }
+  .tab-extra-wrap {
+    display: inline-block;
+  }
+}

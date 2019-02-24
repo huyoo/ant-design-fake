@@ -5,19 +5,23 @@ import Home from "../page/Home";
 import StepInfoForm from "../page/form/StepForm/Step1";
 import StepConfirmForm from "../page/form/StepForm/Step2";
 import StepResult from "../page/form/StepForm/Step3";
+import Analysis from "../page/dashboard/Analysis";
+import Exception403 from "../page/exception/403"
+import Exception404 from "../page/exception/404"
+import Exception500 from "../page/exception/500"
 
 /**
  * 菜单配置文件
  */
 export default [
-    /*{
+    {
         name: "dashboard",
         icon: "dashboard",
         
         routes: [{
-            path: "/",
+            path: "/dashboard/analysis",
             name: "分析页",
-            
+            component: Analysis,
         }, {
             path: "/",
             name: "监控页",
@@ -27,7 +31,7 @@ export default [
             name: "工作台",
             
         }]
-    },*/ {
+    }, {
         name: "表单页",
         icon: "form",
         routes: [{
@@ -82,6 +86,22 @@ export default [
                 // path: "/",
                 name: "搜索列表(应用)",
             }]
+        }]
+    }, {
+        name: "异常页",
+        icon: "warning",
+        routes: [{
+            path: "/exception/403",
+            component: Exception403,
+            name: "403",
+        }, {
+            path: "/exception/404",
+            component: Exception404,
+            name: "404",
+        }, {
+            path: "/exception/500",
+            component: Exception500,
+            name: "500",
         }]
     }, {
         name: "demo",
