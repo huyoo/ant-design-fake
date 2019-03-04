@@ -18,7 +18,9 @@ const Exception = ({type, img, link, title, desc}) => {
             <Col className='exception-content' sm={24} md={12} xl={{span: 8, offset: 1}}>
                 <h1>{title || config[type].title}</h1>
                 <h2>{desc || config[type].desc}</h2>
-                <Link to={link || '/'}>{intl.get('app.exception.back')}</Link>
+                <Link to={link || '/'}>
+                    <button className='ant-btn ant-btn-primary'>{intl.get('app.exception.back')}</button>
+                </Link>
             </Col>
         </Row>
     )
