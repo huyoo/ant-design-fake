@@ -25,7 +25,7 @@ const formItemLayout = {
     data: state.stepForm
 }))
 @Form.create()
-export default class StepConfirmForm extends React.Component{
+class StepConfirmForm extends React.Component{
     handleNext = () => {
         this.props.history.push("/form/step-form/result");
     };
@@ -65,3 +65,5 @@ export default class StepConfirmForm extends React.Component{
         )
     }
 }
+
+export default StepConfirmForm;

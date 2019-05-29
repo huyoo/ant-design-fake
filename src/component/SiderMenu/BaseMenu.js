@@ -9,7 +9,7 @@ const {Item, SubMenu} = Menu;
 @connect(state => ({
     path: state.menuPath
 }))
-export default class BaseMenu extends Component {
+class BaseMenu extends Component {
     handleClick = e => {
         this.props.dispatch({
             type: "CLICK",
@@ -89,3 +89,5 @@ const getLink = ({path, name}) => {
 const getIcon = icon => {
     return <Icon type={icon} theme="outlined"/>
 };
+
+export default BaseMenu;

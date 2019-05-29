@@ -24,7 +24,7 @@ const formItemLayout = {
     formValue: state.stepForm
 }))
 @Form.create()
-export default class StepInfoForm extends React.Component{
+class StepInfoForm extends React.Component{
     handleNext = () => {
         const {dispatch, form:{validateFields}} = this.props;
 
@@ -108,6 +108,8 @@ export default class StepInfoForm extends React.Component{
         )
     }
 }
+
+export default StepInfoForm;
 
 /**
  * 不使用装饰器 use redux without decorator

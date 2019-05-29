@@ -9,6 +9,14 @@ import {Axis, Chart, Geom, Tooltip} from "bizcharts";
 
 
 const {TabPane} = Tabs, {RangePicker} = DatePicker;
+const rankingListData = [];
+
+for (let i = 0; i < 7; i += 1) {
+    rankingListData.push({
+        title: intl.get('app.analysis.test', {no: i}),
+        total: '323,234',
+    });
+}
 
 export default class TabChart extends React.Component {
     render() {
@@ -53,6 +61,7 @@ export default class TabChart extends React.Component {
                 sales: 38
             }
         ];
+
         const cols = {
             sales: {
                 tickInterval: 20
@@ -86,8 +95,12 @@ export default class TabChart extends React.Component {
                 <TabPane tab={intl.get('app.analysis.sales')} key="sales">
                     <Row>
                         <Col sm={24} md={12} xl={16}>
-                            <span>{intl.get('app.analysis.sales-trend')}</span>
-                            <Chart height={400} data={data} scale={cols} forceFit>
+                            <span className="tab-chart-mar-50">{intl.get('app.analysis.sales-trend')}</span>
+                            <Chart height={300}
+                                   data={data}
+                                   scale={cols}
+                                   forceFit
+                                   padding={{left: 80, bottom: 60, right: 30, top: 30}}>
                                 <Axis name="year"/>
                                 <Axis name="sales"/>
                                 <Tooltip/>
@@ -95,15 +108,28 @@ export default class TabChart extends React.Component {
                             </Chart>
                         </Col>
                         <Col sm={24} md={12} xl={8}>
-                            {intl.get('app.analysis.sales-ranking')}
+                            <span className='tab-chart-mar-50'>{intl.get('app.analysis.sales-ranking')}</span>
+                            <ul className='tab-chart-rank'>
+                                {rankingListData.map((item, i) => {
+                                    return <li key={i}>
+                                        <span className={i < 3 && 'active'}>{i + 1}</span>
+                                        <span>{intl.get('app.analysis.test', {no: i})}</span>
+                                        <span>{item.total}</span>
+                                    </li>
+                                })}
+                            </ul>
                         </Col>
                     </Row>
                 </TabPane>
                 <TabPane tab={intl.get('app.analysis.visits')} key="views">
                     <Row>
                         <Col sm={24} md={12} xl={16}>
-                            <span>{intl.get('app.analysis.sales-trend')}</span>
-                            <Chart height={400} data={data} scale={cols} forceFit>
+                            <span className="tab-chart-mar-50">{intl.get('app.analysis.sales-trend')}</span>
+                            <Chart height={300}
+                                   data={data}
+                                   scale={cols}
+                                   forceFit
+                                   padding={{left: 80, bottom: 60, right: 30, top: 30}}>
                                 <Axis name="year"/>
                                 <Axis name="sales"/>
                                 <Tooltip/>
@@ -111,7 +137,16 @@ export default class TabChart extends React.Component {
                             </Chart>
                         </Col>
                         <Col sm={24} md={12} xl={8}>
-                            {intl.get('app.analysis.sales-ranking')}
+                            <span className='tab-chart-mar-50'>{intl.get('app.analysis.sales-ranking')}</span>
+                            <ul className='tab-chart-rank'>
+                                {rankingListData.map((item, i) => {
+                                    return <li key={i}>
+                                        <span className={i < 3 && 'active'}>{i + 1}</span>
+                                        <span>{intl.get('app.analysis.test', {no: i})}</span>
+                                        <span>{item.total}</span>
+                                    </li>
+                                })}
+                            </ul>
                         </Col>
                     </Row>
                 </TabPane>

@@ -26,7 +26,7 @@ const formItemLayout = {
 
 @Form.create()
 @connect(state => ({formState: state.form}))
-export default class BasicForm extends Component{
+class BasicForm extends Component{
     componentDidMount(){
         this.getList();
     }
@@ -190,3 +190,5 @@ export default class BasicForm extends Component{
         )
     }
 }
+
+export default BasicForm;

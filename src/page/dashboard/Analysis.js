@@ -15,7 +15,8 @@ export default class Analysis extends React.Component {
         loading: true,
         rangePickerValue: ''
     };
-    componentDidMount(){
+
+    componentDidMount() {
         let _this = this;
         setTimeout(() => {
             _this.setState({
@@ -38,7 +39,7 @@ export default class Analysis extends React.Component {
 
     isActive = type => {
         console.log(type)
-        const { rangePickerValue } = this.state;
+        const {rangePickerValue} = this.state;
         const value = getTimeDistance(type);
         if (!rangePickerValue[0] || !rangePickerValue[1]) {
             return '';
@@ -55,7 +56,6 @@ export default class Analysis extends React.Component {
     };
 
 
-
     render() {
         const {loading} = this.state;
 
@@ -70,8 +70,8 @@ export default class Analysis extends React.Component {
                               rangePickerValue={""}
                               handleRangePickerChange={this.handleRangePickerChange}/>
                 </Card>
-                <div className="">
-                    <Row>
+                <div className='analysis-body'>
+                    <Row gutter={20}>
                         <Col lg={12} xs={24}>
                             <Card loading={loading} title={intl.get('app.analysis.online-top-search')}/>
                         </Col>
@@ -80,7 +80,9 @@ export default class Analysis extends React.Component {
                         </Col>
                     </Row>
                 </div>
-                <div className="">
+
+
+                <div className="analysis_foot">
                     <Card loading={loading}>
                         1
                     </Card>

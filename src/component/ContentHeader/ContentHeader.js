@@ -1,7 +1,6 @@
 import React, {Component} from "react"
-import {Icon } from "antd"
+import {Icon, Layout} from "antd"
 import "antd/dist/antd.css"
-import {Layout} from "antd"
 
 const {Header} = Layout;
 const style = {
@@ -9,11 +8,13 @@ const style = {
     boxShadow: "0 1px 3px rgba(0,21,41,.15)",
     backgroundColor: "white"
 };
-export default class ContentHeader extends Component{
-    render(){
+export default class ContentHeader extends Component {
+    render() {
         return (
             <Header style={style}>
-                <Icon type="menu-fold" theme="outlined" />
+                <span onClick={this.props.handleMenuCollapse}>
+                    <Icon type={this.props.collapsed ? "menu-unfold" : "menu-fold"} theme="outlined"/>
+                </span>
             </Header>
         )
     }

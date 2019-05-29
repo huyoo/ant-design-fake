@@ -13,7 +13,7 @@ import LineProgress from "../../../component/Chart/LineProgress";
 export default class HeadRow extends React.Component {
     render() {
         const {loading = true} = this.props;
-        const colLayout = {xs: 24, lg: 12, xl: 6};
+        const colLayout = {xs: 24, md: 12, xl: 6};
         const data = [
             {
                 year: "1951 年",
@@ -65,10 +65,10 @@ export default class HeadRow extends React.Component {
                         </div>
                         <p className='analysis_card_content'>¥{'123,111'}</p>
                         <Row className='analysis_card_chart'>
-                            <Col lg={12} xs={24}>
+                            <Col lg={12} xs={12}>
                                 <Trend title={intl.get('app.analysis.week')} data={` 12%`} flag={'up'}/>
                             </Col>
-                            <Col lg={12} xs={24}>
+                            <Col lg={12} xs={12}>
                                 <Trend title={intl.get('app.analysis.day')} data={` 11%`} flag={'down'}/>
                             </Col>
                         </Row>

@@ -3,13 +3,12 @@
 @base_pad: 20px;
 
 .analysis_head {
-  padding: @base_pad;
-  div:first-child {
+  padding-left: @base_pad;
+  margin-bottom: @base_pad;
+  & > div:first-child {
     & > div {
+      padding-top: @base_pad;
       padding-right: @base_pad;
-      &:last-child {
-        padding-right: 0;
-      }
     }
   }
   .analysis_card_title {
@@ -52,4 +51,53 @@
   .tab-extra-wrap {
     display: inline-block;
   }
+}
+
+.tab-chart-rank {
+  list-style: none;
+  font-size: 14px;
+  li {
+    margin: 15px 0;
+    span:first-child {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-top: 1.5px;
+      margin-right: 16px;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center;
+      background-color: #f5f5f5;
+      border-radius: 20px;
+      &.active {
+        color: #fff;
+        background-color: #314659;
+      }
+    }
+    span:last-child {
+      float: right;
+      width: 80px;
+    }
+  }
+}
+
+.analysis-body {
+  margin: 0 20px;
+  & > div {
+    & > div:first-child {
+      margin-top: 20px;
+    }
+    & > div:last-child {
+      margin: 20px 0;
+    }
+  }
+}
+
+.analysis_foot {
+  margin: 0 20px;
+}
+
+.tab-chart-mar-50 {
+  margin-left: 38px;
 }
