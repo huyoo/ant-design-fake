@@ -24,7 +24,7 @@
 //             //配置代理,context为代理的相对路径,target为服务器地址
 //             config.proxy = [
 //                 {
-//                     context: ['/api'],
+//                     Context: ['/api'],
 //                     target: 'http://localhost:1111',
 //                     // pathRewrite: {'^/api': ''},
 //                     changeOrigin: true,
