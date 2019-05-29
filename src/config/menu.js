@@ -9,6 +9,7 @@ import Analysis from "../page/dashboard/Analysis";
 import Exception403 from "../page/exception/403"
 import Exception404 from "../page/exception/404"
 import Exception500 from "../page/exception/500"
+import Context from "../page/newFeature/context";
 
 /**
  * 菜单配置文件
@@ -104,6 +105,14 @@ export default [
             name: "500",
         }]
     }, {
+		name: "新功能",
+		icon: "more",
+		routes: [{
+			path: "/newFeature/context",
+			name: "Context",
+			component: Context,
+		}]
+	}, {
         name: "demo",
         icon: "gift",
         routes: [{
