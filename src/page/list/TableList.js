@@ -27,8 +27,8 @@ const columns = [
     }];
 
 export default class TableList extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             selectedRowKeys: [],
             onChange: this.OnChange,

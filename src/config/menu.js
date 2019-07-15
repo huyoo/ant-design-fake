@@ -10,6 +10,7 @@ import Exception403 from "../page/exception/403"
 import Exception404 from "../page/exception/404"
 import Exception500 from "../page/exception/500"
 import Context from "../page/newFeature/Context";
+import HooksComponent from "../page/newFeature/Hooks";
 
 /**
  * 菜单配置文件
@@ -108,9 +109,13 @@ export default [
 		name: "新功能",
 		icon: "more",
 		routes: [{
-			path: "/newFeature/Context",
+			path: "/feature/context",
 			name: "Context",
 			component: Context,
+		}, {
+			path: "/feature/hooks",
+			name: "Hooks",
+			component: HooksComponent,
 		}]
 	}, {
         name: "demo",
