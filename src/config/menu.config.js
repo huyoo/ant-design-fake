@@ -3,18 +3,17 @@
  */
 import BasicForm from "../page/form/BasicForm/BasicForm";
 import TableList from "../page/list/TableList";
-import ImgPage from "../page/ImgPage";
+import Carousel from "../page/demo/carousel/Carousel";
 import StepInfoForm from "../page/form/StepForm/Step1";
 import StepConfirmForm from "../page/form/StepForm/Step2";
 import StepResult from "../page/form/StepForm/Step3";
 import Analysis from "../page/dashboard/Analysis";
-import Exception403 from "../page/exception/403"
-import Exception404 from "../page/exception/404"
-import Exception500 from "../page/exception/500"
+import {Exception403, Exception404, Exception500} from "../page/exception"
 import Context from "../page/newFeature/Context";
 import HooksComponent from "../page/newFeature/Hooks";
 import AutoTable from "../page/component/AutoTable";
 import BasicLayout from "../layout/BasicLayout";
+import Game from "../page/demo/game/game";
 
 export default [
     {
@@ -109,9 +108,13 @@ export default [
         icon: "gift",
 		component: BasicLayout,
         routes: [{
-            path: "/carousel",
+            path: "/demo/carousel",
             name: "轮滚图",
-            component: ImgPage,
+            component: Carousel,
+        }, {
+	        path: "/demo/game",
+	        name: "五子棋",
+	        component: Game,
         }]
     }
 ]

@@ -10,9 +10,7 @@ import en_US from "./locale/en_US"
 import BasicLayout from "./layout/BasicLayout";
 import BasicForm from "./page/form/BasicForm/BasicForm";
 import {Route} from "react-router";
-import Exception403 from "./page/exception/403";
-import Exception500 from "./page/exception/500";
-import Exception404 from "./page/exception/404";
+import {Exception403, Exception404, Exception500} from "./page/exception";
 import Analysis from "./page/dashboard/Analysis";
 import StepInfoForm from "./page/form/StepForm/Step1";
 import StepConfirmForm from "./page/form/StepForm/Step2";
@@ -20,8 +18,9 @@ import StepResult from "./page/form/StepForm/Step3";
 import Context from "./page/newFeature/Context";
 import HooksComponent from "./page/newFeature/Hooks";
 import TableList from "./page/list/TableList";
-import ImgPage from "./page/ImgPage";
+import Carousel from "./page/demo/carousel/Carousel";
 import AutoTable from "./page/component/AutoTable";
+import Game from "./page/demo/game/game";
 
 require("./mock");
 
@@ -61,7 +60,8 @@ export default class App extends Component {
 							<Route component={HooksComponent} path='/feature/hooks'/>
 
 							<Route component={AutoTable} path='/component/auto-height-table'/>
-							<Route component={ImgPage} path='/carousel'/>
+							<Route component={Carousel} path='/demo/carousel'/>
+							<Route component={Game} path='/demo/game'/>
 						</BasicLayout>
 					</Switch>
 				</BrowserRouter>

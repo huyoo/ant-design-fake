@@ -1,13 +1,8 @@
 import React, {Component} from "react"
 
 export default class SliderItem extends Component{
-    constructor(){
-        super();
-        this.domName=null;
-    }
-    refHb(){
-        console.log(this.domName.current);
-    }
+	domName=null;
+
     render(){
         const {href, title, src}= this.props;
         return (

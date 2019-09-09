@@ -31,10 +31,6 @@ const formItemLayout = {
 @Form.create()
 @connect(state => ({formState: state.form}))
 class BasicForm extends Component{
-	componentWillMount() {
-		console.log('basicform')
-	}
-
 	componentDidMount(){
         this.getList();
     }
@@ -62,7 +58,7 @@ class BasicForm extends Component{
     };
     render(){
         const { form:{getFieldDecorator, getFieldValue}} = this.props;
-        console.log('render')
+
         return (
             <Fragment>
                 <div className="head">

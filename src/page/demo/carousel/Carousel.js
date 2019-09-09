@@ -5,8 +5,8 @@ import "./Carousel.css"
 
 // 走马灯轮播图
 export default class Carousel extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             item: [],
             currentIndex: 0,
