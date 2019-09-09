@@ -2,7 +2,6 @@
  * 顶部信息
  * create by huyoo ON 2019/2/22
  */
-
 import React from "react"
 import {Card, Col, Icon, Row, Tooltip} from "antd"
 import {Chart, Geom} from "bizcharts"

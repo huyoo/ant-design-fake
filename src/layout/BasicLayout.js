@@ -1,6 +1,5 @@
 import React, {PureComponent} from "react"
 import {Layout} from "antd"
-import "antd/dist/antd.css"
 import SiderMenu from "../component/SiderMenu/SiderMenu"
 import ContentHeader from "../component/ContentHeader/ContentHeader"
 import Foot from "../component/Foot/Foot"
@@ -9,10 +8,10 @@ const {Content, Footer} = Layout;
 
 export default class BasicLayout extends PureComponent {
     state = {
-        collapsed: false
+        collapsed: true
     };
-    handleMenuCollapse = () => {
-        console.log(1);
+
+	handleMenuCollapse = () => {
         this.setState({
             collapsed: !this.state.collapsed
         })

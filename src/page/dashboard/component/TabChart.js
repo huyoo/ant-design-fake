@@ -1,12 +1,10 @@
 /**
  * create by huyu_ ON 2019/2/24
  */
-
 import React from "react"
 import {Col, DatePicker, Row, Tabs} from "antd";
 import intl from 'react-intl-universal'
 import {Axis, Chart, Geom, Tooltip} from "bizcharts";
-
 
 const {TabPane} = Tabs, {RangePicker} = DatePicker;
 const rankingListData = [];
@@ -72,18 +70,18 @@ export default class TabChart extends React.Component {
             <Tabs tabBarExtraContent={
                 <div>
                     <div className='tab-extra-wrap'>
-                        <a className={isActive('today')} onClick={() => selectDate('today')}>{
+                        <span style={isActive('today')} onClick={() => selectDate('today')}>{
                             intl.get('app.analysis.all-day')
-                        }</a>
-                        <a className={isActive('week')} onClick={() => selectDate('week')}>{
+                        }</span>
+                        <span style={isActive('week')} onClick={() => selectDate('week')}>{
                             intl.get('app.analysis.all-week')
-                        }</a>
-                        <a className={isActive('month')} onClick={() => selectDate('month')}>{
+                        }</span>
+                        <span style={isActive('month')} onClick={() => selectDate('month')}>{
                             intl.get('app.analysis.all-month')
-                        }</a>
-                        <a className={isActive('year')} onClick={() => selectDate('year')}>{
+                        }</span>
+                        <span style={isActive('year')} onClick={() => selectDate('year')}>{
                             intl.get('app.analysis.all-year')
-                        }</a>
+                        }</span>
                     </div>
                     <RangePicker
                         value={rangePickerValue}
@@ -112,7 +110,7 @@ export default class TabChart extends React.Component {
                             <ul className='tab-chart-rank'>
                                 {rankingListData.map((item, i) => {
                                     return <li key={i}>
-                                        <span className={i < 3 && 'active'}>{i + 1}</span>
+                                        <span className={i < 3 ? 'active': ''}>{i + 1}</span>
                                         <span>{intl.get('app.analysis.test', {no: i})}</span>
                                         <span>{item.total}</span>
                                     </li>
@@ -141,7 +139,7 @@ export default class TabChart extends React.Component {
                             <ul className='tab-chart-rank'>
                                 {rankingListData.map((item, i) => {
                                     return <li key={i}>
-                                        <span className={i < 3 && 'active'}>{i + 1}</span>
+                                        <span className={i < 3 ? 'active': ''}>{i + 1}</span>
                                         <span>{intl.get('app.analysis.test', {no: i})}</span>
                                         <span>{item.total}</span>
                                     </li>

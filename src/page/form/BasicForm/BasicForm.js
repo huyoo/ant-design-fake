@@ -1,8 +1,12 @@
-import React, {Component} from "react"
+/**
+ * decs: 基础表单
+ * author: hy
+ * time: 2019/9/7
+ */
+import React, {Component, Fragment} from "react"
 import {connect} from "react-redux"
 import intl from "react-intl-universal"
-import {Breadcrumb, Button, DatePicker, Form, Icon, Input, InputNumber, Radio, Select, Tooltip, message} from "antd"
-import BasicLayout from "../../../layout/BasicLayout"
+import {Breadcrumb, Button, DatePicker, Form, Icon, Input, InputNumber, message, Radio, Select, Tooltip} from "antd"
 import "./BasicForm.css"
 import axios from "axios/index";
 
@@ -27,7 +31,11 @@ const formItemLayout = {
 @Form.create()
 @connect(state => ({formState: state.form}))
 class BasicForm extends Component{
-    componentDidMount(){
+	componentWillMount() {
+		console.log('basicform')
+	}
+
+	componentDidMount(){
         this.getList();
     }
     getList = () => {
@@ -54,9 +62,9 @@ class BasicForm extends Component{
     };
     render(){
         const { form:{getFieldDecorator, getFieldValue}} = this.props;
-
+        console.log('render')
         return (
-            <BasicLayout>
+            <Fragment>
                 <div className="head">
                     <Breadcrumb>
                         <Breadcrumb.Item href="/home">首页</Breadcrumb.Item>
@@ -186,7 +194,7 @@ class BasicForm extends Component{
                         </Item>
                     </Form>
                 </div>
-            </BasicLayout>
+            </Fragment>
         )
     }
 }

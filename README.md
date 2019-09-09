@@ -2,17 +2,21 @@
 2. 参考案例：[AntPro预览地址](https://preview.pro.ant.design)    [AntPro源码仓库地址](https://github.com/ant-design/ant-design-pro)  
    框架、组件库以及主要的工具包版本如下
    ```
-   "react": "^16.4.1",
-   "antd": "^3.6.5",
+   "react": "^16.9.0",
+   "react-dom": "^16.9.0",
+   "react-redux": "^7.1.1",
+   "react-router": "^5.0.0",
+   "react-router-dom": "^5.0.0",
+   "react-scripts": "^3.0.1",
+   "redux": "^4.0.1",
+   "antd": "^3.23.1",
+   "less": "^3.9.0",
+   "less-loader": "^4.1.0",
+   "customize-cra": "^0.2.12",
    "react-app-rewired": "^1.6.2",
-   "react-dom": "^16.4.1",
-   "react-redux": "^5.0.7",
-   "react-router": "^4.3.1",
-   "react-router-dom": "^4.3.1",
-   "react-scripts": "1.1.4",
-   "redux": "^4.0.0",
    "babel-plugin-import": "^1.11.0",
    "babel-plugin-transform-decorators-legacy": "~1.3.4",
+   "react-intl-universal": "^1.15.5",
    ```
    创建项目使用react-create-app 2.0生成  
    开发工具：Webstorm  

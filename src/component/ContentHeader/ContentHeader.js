@@ -1,6 +1,5 @@
 import React, {Component} from "react"
 import {Icon, Layout} from "antd"
-import "antd/dist/antd.css"
 
 const {Header} = Layout;
 const style = {

@@ -33,7 +33,7 @@ class StepConfirmForm extends React.Component{
         this.props.history.push("/form/step-form/info");
     };
     render(){
-        const {data} = this.props;
+        const {data={}} = this.props;
 
         return (
             <StepForm currentStep={1}>

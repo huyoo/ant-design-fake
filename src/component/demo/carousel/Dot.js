@@ -9,7 +9,7 @@ export default class Dot extends Component{
         for(let i=0;i<total;i++){
             items.push(<span key={i}
                              onClick={()=> clickHandle(i)}
-                             className={current===i? "current hand":"hand"}></span>)
+                             className={current===i? "current hand":"hand"}/>)
         }
         return (
             <div className="dot">{items}</div>

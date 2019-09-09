@@ -1,7 +1,6 @@
 /**
  * create by huyu_ ON 2019/2/24
  */
-
 import React from "react"
 import config from './typeConfig'
 import {Link} from "react-router-dom";

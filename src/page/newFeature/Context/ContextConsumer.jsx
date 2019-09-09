@@ -3,7 +3,7 @@
  * create by hy ON 2019/5/29
  */
 import React, {Component} from "react"
-import {Spin} from "antd/lib/index"
+import {Spin} from "antd"
 import RouterContext from "./RouterContext";
 
 class ContextConsumer extends Component {

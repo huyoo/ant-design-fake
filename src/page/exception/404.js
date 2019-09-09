@@ -4,12 +4,9 @@
 
 import React from "react"
 import Exception from "../../component/Exception";
-import BasicLayout from "../../layout/BasicLayout";
 
 export default () => {
     return (
-        <BasicLayout>
-            <Exception type='404'/>
-        </BasicLayout>
+        <Exception type='404'/>
     )
 }

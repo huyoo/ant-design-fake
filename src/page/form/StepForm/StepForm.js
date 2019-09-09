@@ -1,8 +1,7 @@
 /**
  * create by huyoo ON 2019/1/10
  */
-import React from "react"
-import BasicLayout from "../../../layout/BasicLayout";
+import React, {Fragment} from "react"
 import {Breadcrumb, Steps} from "antd";
 import "./StepForm.css"
 
@@ -12,7 +11,7 @@ export default class StepForm extends React.Component{
     render(){
         const {children, currentStep} = this.props;
         return (
-            <BasicLayout>
+            <Fragment>
                 <div className="head">
                     <Breadcrumb>
                         <Breadcrumb.Item href="/home">首页</Breadcrumb.Item>
@@ -30,7 +29,7 @@ export default class StepForm extends React.Component{
                     </Steps>
                     {children}
                 </div>
-            </BasicLayout>
+            </Fragment>
         )
     }
 }

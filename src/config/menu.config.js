@@ -1,7 +1,9 @@
+/**
+ * 菜单配置文件
+ */
 import BasicForm from "../page/form/BasicForm/BasicForm";
 import TableList from "../page/list/TableList";
 import ImgPage from "../page/ImgPage";
-import Home from "../page/Home";
 import StepInfoForm from "../page/form/StepForm/Step1";
 import StepConfirmForm from "../page/form/StepForm/Step2";
 import StepResult from "../page/form/StepForm/Step3";
@@ -11,31 +13,23 @@ import Exception404 from "../page/exception/404"
 import Exception500 from "../page/exception/500"
 import Context from "../page/newFeature/Context";
 import HooksComponent from "../page/newFeature/Hooks";
+import AutoTable from "../page/component/AutoTable";
+import BasicLayout from "../layout/BasicLayout";
 
-/**
- * 菜单配置文件
- */
 export default [
     {
         name: "dashboard",
         icon: "dashboard",
-        
+	    component: BasicLayout,
         routes: [{
             path: "/dashboard/analysis",
             name: "分析页",
             component: Analysis,
-        }, {
-            path: "/",
-            name: "监控页",
-            
-        }, {
-            path: "/",
-            name: "工作台",
-            
         }]
     }, {
         name: "表单页",
         icon: "form",
+		component: BasicLayout,
         routes: [{
             path: "/form/basic-form",
             component: BasicForm,
@@ -46,9 +40,6 @@ export default [
             component: StepInfoForm,
             hideChildInMenu: true,
             routes: [{
-                path: "/form/step-form/info",
-                component: StepInfoForm,
-            },{
                 path: "/form/step-form/confirm",
                 component: StepConfirmForm,
             },{
@@ -56,9 +47,11 @@ export default [
                 component: StepResult,
             }]
         }]
-    }, {
+    },
+	{
         name: "列表页",
         icon: "table",
+		component: BasicLayout,
         routes: [{
             name: "查询表格",
             path: "/list/table-list",
@@ -69,29 +62,12 @@ export default [
                 path: "/list/table-list",
                 component: TableList,
             }]
-        }, {
-            // path: "/",
-            name: "标准列表",
-        }, {
-            // path: "/",
-            name: "卡片列表",
-        }, {
-            name: "搜索列表",
-            // hideChildInMenu: true,
-            routes: [{
-                // path: "/",
-                name: "搜索列表(项目)",
-            }, {
-                // path: "/",
-                name: "搜索列表(文章)",
-            }, {
-                // path: "/",
-                name: "搜索列表(应用)",
-            }]
         }]
-    }, {
+    },
+	{
         name: "异常页",
         icon: "warning",
+		component: BasicLayout,
         routes: [{
             path: "/exception/403",
             component: Exception403,
@@ -108,6 +84,7 @@ export default [
     }, {
 		name: "新功能",
 		icon: "more",
+		component: BasicLayout,
 		routes: [{
 			path: "/feature/context",
 			name: "Context",
@@ -118,17 +95,23 @@ export default [
 			component: HooksComponent,
 		}]
 	}, {
+		name: "组件库",
+		icon: "build",
+		component: BasicLayout,
+		routes: [{
+			path: "/component/auto-height-table",
+			name: "AutoHeightTable",
+			component: AutoTable,
+		}]
+	},
+	{
         name: "demo",
         icon: "gift",
+		component: BasicLayout,
         routes: [{
             path: "/carousel",
             name: "轮滚图",
             component: ImgPage,
         }]
-    },{
-        name: "首页",
-        hideInMenu: true,
-        path: "/",
-        component: Home
     }
 ]

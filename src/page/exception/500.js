@@ -3,12 +3,7 @@
  */
 import React from "react"
 import Exception from "../../component/Exception";
-import BasicLayout from "../../layout/BasicLayout";
 
 export default () => {
-    return (
-        <BasicLayout>
-            <Exception type='500'/>
-        </BasicLayout>
-    )
+    return (<Exception type='500'/>)
 }

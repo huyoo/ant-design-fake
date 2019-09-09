@@ -1,8 +1,8 @@
 /**
+ * 可视化
  * create by huyoo ON 2019/2/21
  */
-import React from "react"
-import BasicLayout from "../../layout/BasicLayout";
+import React, {Fragment} from "react"
 import {Card, Col, Row} from "antd";
 import "./Analysis.less"
 import HeadRow from "./component/HeadRow";
@@ -38,11 +38,10 @@ export default class Analysis extends React.Component {
     };
 
     isActive = type => {
-        console.log(type)
         const {rangePickerValue} = this.state;
         const value = getTimeDistance(type);
         if (!rangePickerValue[0] || !rangePickerValue[1]) {
-            return '';
+            return null;
         }
         if (
             rangePickerValue[0].isSame(value[0], 'day') &&
@@ -52,7 +51,7 @@ export default class Analysis extends React.Component {
                 color: '#1890ff'
             };
         }
-        return '';
+        return null;
     };
 
 
@@ -60,7 +59,7 @@ export default class Analysis extends React.Component {
         const {loading} = this.state;
 
         return (
-            <BasicLayout>
+            <Fragment>
                 <div className="analysis_head">
                     <HeadRow loading={loading}/>
                 </div>
@@ -81,13 +80,12 @@ export default class Analysis extends React.Component {
                     </Row>
                 </div>
 
-
                 <div className="analysis_foot">
                     <Card loading={loading}>
                         1
                     </Card>
                 </div>
-            </BasicLayout>
+            </Fragment>
         )
     }
 }

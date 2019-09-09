@@ -1,7 +1,12 @@
+/**
+ * decs: 菜单栏
+ * author: hy
+ * time: 2019/9/9
+ */
 import React, {Component} from "react"
 import {Icon, Menu} from "antd"
 import {Link} from "react-router-dom"
-import menuData from "../../config/menu"
+import menuData from "../../config/menu.config"
 import {connect} from "react-redux";
 
 const {Item, SubMenu} = Menu;

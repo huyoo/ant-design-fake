@@ -2,7 +2,6 @@
  * 带上升下降标识的数据展示栏
  * create by huyu_ ON 2019/2/22
  */
-
 import React from "react"
 import {Icon} from "antd";
 import "./style.less"
