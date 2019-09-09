@@ -170,7 +170,6 @@ export default class AutoTable extends PureComponent {
 				<AutoHeightTable columns={columns}
 				                 dataSource={state.hasData ? data : []}
 				                 {...state}
-				                 pagination={null}
 				                 tableScrollY={100}/>
 			</div>
 		</Fragment>

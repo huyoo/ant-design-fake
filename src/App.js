@@ -17,11 +17,11 @@ import Analysis from "./page/dashboard/Analysis";
 import StepInfoForm from "./page/form/StepForm/Step1";
 import StepConfirmForm from "./page/form/StepForm/Step2";
 import StepResult from "./page/form/StepForm/Step3";
-import AutoHeightTable from "./component/AutoHeightTable";
 import Context from "./page/newFeature/Context";
 import HooksComponent from "./page/newFeature/Hooks";
 import TableList from "./page/list/TableList";
 import ImgPage from "./page/ImgPage";
+import AutoTable from "./page/component/AutoTable";
 
 require("./mock");
 
@@ -60,7 +60,7 @@ export default class App extends Component {
 							<Route component={Context} path='/feature/context'/>
 							<Route component={HooksComponent} path='/feature/hooks'/>
 
-							<Route component={AutoHeightTable} path='/component/auto-height-table'/>
+							<Route component={AutoTable} path='/component/auto-height-table'/>
 							<Route component={ImgPage} path='/carousel'/>
 						</BasicLayout>
 					</Switch>

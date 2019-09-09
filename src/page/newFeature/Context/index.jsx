@@ -7,7 +7,6 @@ import React, {Component} from "react"
 import ContextConsumer from "./ContextConsumer";
 import {Button} from "antd";
 import RouterContext from "./RouterContext";
-import BasicLayout from "../../../layout/BasicLayout";
 import FnContext from "./funcComponent";
 
 class Context extends Component {
@@ -29,13 +28,11 @@ class Context extends Component {
 		const {color} = this.state;
 		return (
 			<RouterContext.Provider value={color}>
-				<BasicLayout>
-					<div style={{textAlign: 'center'}}>
-						<ContextConsumer/>
-						<FnContext/>
-						<Button type='primary' onClick={this.toggleColor}>点击切换配色</Button>
-					</div>
-				</BasicLayout>
+				<div style={{textAlign: 'center'}}>
+					<ContextConsumer/>
+					<FnContext/>
+					<Button type='primary' onClick={this.toggleColor}>点击切换配色</Button>
+				</div>
 			</RouterContext.Provider>
 		)
 	}
