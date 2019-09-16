@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 import {Provider} from "react-redux"
+import {Route} from "react-router";
 import intl from "react-intl-universal"
 import {BrowserRouter, Switch,} from "react-router-dom"
 import {createStore} from "redux";
 import combineReducer from "./CombineReducer"
 import './App.css';
 import zh_CN from "./locale/zh_CN";
-import en_US from "./locale/en_US"
+import en_US from "./locale/en_US";
+import 'moment/locale/zh-cn';
+
 import BasicLayout from "./layout/BasicLayout";
 import BasicForm from "./page/form/BasicForm/BasicForm";
-import {Route} from "react-router";
 import {Exception403, Exception404, Exception500} from "./page/exception";
 import Analysis from "./page/dashboard/Analysis";
 import StepInfoForm from "./page/form/StepForm/Step1";

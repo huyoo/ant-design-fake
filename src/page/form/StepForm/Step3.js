@@ -4,7 +4,7 @@
 import React from "react"
 import StepForm from "./StepForm";
 import {Button} from "antd";
-import "./StepForm.css"
+import "./StepForm.less"
 
 export default class StepResult extends React.Component{
     handleNext = () => {

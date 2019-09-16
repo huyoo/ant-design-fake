@@ -1,6 +1,5 @@
 import React, {Fragment} from "react"
 import {Breadcrumb, message, Table} from "antd"
-import "./TableList.css"
 import axios from "axios";
 
 const columns = [
@@ -24,6 +23,12 @@ const columns = [
 		key: "address",
 		dataIndex: 'address'
 	}];
+
+const tableList = {
+	margin: '20px 20px',
+	padding: '30px 0',
+	backgroundColor: 'white'
+};
 
 export default class TableList extends React.Component {
 	constructor(props) {
@@ -73,7 +78,7 @@ export default class TableList extends React.Component {
 					</Breadcrumb>
 					<div className="title">查询表格</div>
 				</div>
-				<div className="table_list">
+				<div style={tableList}>
 					<Table rowKey={record => record.key}
 					       loading={loading}
 					       dataSource={data}

@@ -1,9 +1,9 @@
 import React, {PureComponent} from "react"
 import {Icon} from "antd"
 import {Link} from "react-router-dom"
-import "./Foot.css"
+import "./style.less"
 
-export default class Foot extends PureComponent{
+export default class Index extends PureComponent{
     render(){
         return (
             <div className="page_foot">

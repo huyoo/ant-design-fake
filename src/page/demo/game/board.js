@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Square from './square'
-import './style.css'
+import './game.less'
 
 export default class Board extends Component{
     constructor(){

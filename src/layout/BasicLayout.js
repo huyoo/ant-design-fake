@@ -1,12 +1,12 @@
-import React, {PureComponent} from "react"
+import React, {Component} from "react"
 import {Layout} from "antd"
 import SiderMenu from "../component/SiderMenu/SiderMenu"
 import ContentHeader from "../component/ContentHeader/ContentHeader"
-import Foot from "../component/Foot/Foot"
+import Foot from "../component/Foot"
 
 const {Content, Footer} = Layout;
 
-export default class BasicLayout extends PureComponent {
+export default class BasicLayout extends Component {
     state = {
         collapsed: true
     };

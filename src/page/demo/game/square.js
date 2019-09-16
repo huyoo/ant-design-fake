@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import './style.css'
+import './game.less'
 
 export default class Square extends Component{
     render(){

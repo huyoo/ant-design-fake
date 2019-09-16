@@ -7,7 +7,7 @@ import React, {Component, Fragment} from "react"
 import {connect} from "react-redux"
 import intl from "react-intl-universal"
 import {Breadcrumb, Button, DatePicker, Form, Icon, Input, InputNumber, message, Radio, Select, Tooltip} from "antd"
-import "./BasicForm.css"
+import "./BasicForm.less"
 import axios from "axios/index";
 
 const { Item} = Form,

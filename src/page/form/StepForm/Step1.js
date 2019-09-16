@@ -4,7 +4,7 @@
 import React from "react"
 import StepForm from "./StepForm";
 import {Button, Divider, Form, Input, Select} from "antd";
-import "./StepForm.css"
+import "./StepForm.less"
 import {connect} from "react-redux";
 
 const FormItem = Form.Item, {Option}=Select;

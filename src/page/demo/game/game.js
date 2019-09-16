@@ -5,7 +5,7 @@
  */
 import React, {Component} from 'react';
 import Board from './board';
-import './style.css'
+import './game.less'
 
 export default class Game extends Component{
     render(){

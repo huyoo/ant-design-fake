@@ -3,7 +3,7 @@
  */
 import React, {Fragment} from "react"
 import {Breadcrumb, Steps} from "antd";
-import "./StepForm.css"
+import "./StepForm.less"
 
 const {Step} = Steps;
 
