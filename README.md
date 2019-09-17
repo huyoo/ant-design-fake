@@ -34,3 +34,10 @@
 9. 开发环境、生产环境的配置分离
 10. 移动端展示效果
 11. 多语言、布局方式切换
+12. 组件迁移
+    1. 表格下拉选择-TableSelect
+    2. cron配置器-CronBuilder
+    3. 可拖拽弹窗-DragModal
+    4. 带请求的选择-SelectWithService
+    5. 带请求的树形选择-TreeSelectWithService
+    6. 表格穿梭-TableTransfer
