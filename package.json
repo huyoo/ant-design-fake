@@ -22,7 +22,8 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "^3.1.1",
     "redux": "^4.0.1",
-    "rc-dropdown": "latest"
+    "rc-dropdown": "latest",
+    "lodash": "latest"
   },
   "scripts": {
     "start": "react-app-rewired start",
