@@ -30,14 +30,13 @@
     "build": "react-app-rewired build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "mock": "supervisor -w mock ./mock/http.js"
+    "mock": "node ./mock/http.js"
   },
   "devDependencies": {
     "@babel/polyfill": "^7.6.0",
     "@babel/plugin-proposal-decorators": "^7.6.0",
     "mockjs": "^1.0.1-beta3",
-    "prop-types": "latest",
-    "supervisor": "^0.12.0"
+    "prop-types": "latest"
   },
   "browserslist": [
     ">0.2%",
