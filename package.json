@@ -26,7 +26,8 @@
     "lodash": "latest"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "cross-env REACT_APP_SERVICE=local react-app-rewired start",
+    "startNode": "cross-env REACT_APP_SERVICE=node react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -36,7 +37,9 @@
     "@babel/polyfill": "^7.6.0",
     "@babel/plugin-proposal-decorators": "^7.6.0",
     "mockjs": "^1.0.1-beta3",
-    "prop-types": "latest"
+    "prop-types": "latest",
+    "cross-env": "^6.0.3",
+    "http-proxy-middleware": "^0.20.0"
   },
   "browserslist": [
     ">0.2%",
