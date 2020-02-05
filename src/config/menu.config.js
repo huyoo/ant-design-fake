@@ -14,6 +14,7 @@ import HooksComponent from "../page/newFeature/Hooks";
 import AutoTable from "../page/component/AutoTable";
 import BasicLayout from "../layout/BasicLayout";
 import Game from "../page/demo/game/game";
+import Loading from "../page/component/Loading";
 
 export default [
     {
@@ -101,6 +102,10 @@ export default [
 			path: "/component/auto-height-table",
 			name: "AutoHeightTable",
 			component: AutoTable,
+		}, {
+			path: "/component/loading",
+			name: "Loading",
+			component: Loading,
 		}]
 	},
 	{

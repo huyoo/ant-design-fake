@@ -1,0 +1,76 @@
+
+.loading {
+  .loading-center-absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
+    margin-left: -30px;
+    animation: roll infinite 1s;
+  }
+
+  .point {
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 50% 50% 50% 50%;
+  }
+
+  .point:nth-child(2n + 0) {
+    margin-right: 0;
+  }
+
+  .point-top-left {
+    background-color: #2281f5;
+    animation: point-top-left 1s infinite;
+  }
+
+  .point-top-right {
+    background-color: #f53998;
+    animation: point-top-right 1s infinite;
+  }
+
+  .point-bottom-left {
+    background-color: #1d956c;
+    animation: point-bottom-left 1s infinite;
+  }
+
+  .point-bottom-right {
+    background-color: #d9761e;
+    animation: point-bottom-right 1s infinite;
+  }
+
+  @keyframes roll {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes point-top-left{
+    50%{
+    transform: translate(20px, 20px)
+    }
+  }
+
+  @keyframes point-top-right{
+    50%{
+      transform: translate(-20px, 20px)
+    }
+  }
+
+  @keyframes point-bottom-left{
+    50%{
+      transform: translate(20px, -20px)
+    }
+  }
+
+  @keyframes point-bottom-right{
+    50%{
+      transform: translate(-20px, -20px)
+    }
+  }
+}

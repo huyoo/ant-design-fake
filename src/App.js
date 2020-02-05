@@ -12,6 +12,7 @@ import zh_CN from "./locale/zh_CN";
 import en_US from "./locale/en_US";
 import {Exception403, Exception404, Exception500} from "./page/exception";
 import BasicLayout from "./layout/BasicLayout";
+import Loading from "./component/Loading";
 
 const BasicForm = lazy(() => import('./page/form/BasicForm/BasicForm'));
 const Analysis = lazy(() => import('./page/dashboard/Analysis'));
@@ -23,6 +24,7 @@ const HooksComponent = lazy(() => import("./page/newFeature/Hooks"));
 const TableList = lazy(() => import("./page/list/TableList"));
 const Carousel = lazy(() => import("./page/demo/carousel/Carousel"));
 const AutoTable = lazy(() => import("./page/component/AutoTable"));
+const LoadingPage = lazy(() => import("./page/component/Loading"));
 const Game = lazy(() => import("./page/demo/game/game"));
 
 if (process.env.REACT_APP_SERVICE === 'local') {
@@ -49,7 +51,7 @@ export default class App extends Component {
                 <BrowserRouter>
                     <Switch>
                         <BasicLayout>
-	                        <Suspense fallback={<Spin spinning/>}>
+	                        <Suspense fallback={<Loading/>}>
                             <Route component={Analysis} path='/dashboard/analysis'/>
 
                             <Route component={BasicForm} path='/form/basic-form'/>
@@ -67,6 +69,7 @@ export default class App extends Component {
                             <Route component={HooksComponent} path='/feature/hooks'/>
 
                             <Route component={AutoTable} path='/component/auto-height-table'/>
+		                        <Route component={LoadingPage} path='/component/loading'/>
                             <Route component={Carousel} path='/demo/carousel'/>
                             <Route component={Game} path='/demo/game'/>
 	                        </Suspense>
