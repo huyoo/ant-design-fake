@@ -1,3 +1,7 @@
+```
+已停止更新，新版本请切换分支到master
+``` 
+
 1. 本项目用于学习和研究React全家桶
 2. 参考案例：[AntPro预览地址](https://preview.pro.ant.design)    [AntPro源码仓库地址](https://github.com/ant-design/ant-design-pro)  
    框架、组件库以及主要的工具包版本如下
@@ -21,7 +25,7 @@
    创建项目使用react-create-app 2.0生成  
    开发工具：Webstorm  
    开发平台：Windows10
-   
+
 # 主要的功能点
 1. ~~了解并使用react~~
 2. ~~使用Antd~~
@@ -32,6 +36,8 @@
 7. ~~加入mock，实现数据请求接口管理~~
 8. ~~加入Less,实现样式文件预编译~~
 9. ~~开发环境、生产环境的配置分离~~(使用cross-env实现)
+---
+**以下已舍弃**
 10. 移动端展示效果
 11. 多语言、布局方式切换
 12. 组件迁移
@@ -42,3 +48,4 @@
     5. 带请求的树形选择-TreeSelectWithService
     6. 表格穿梭-TableTransfer
     7. 加载动画组件-Loading
+---
