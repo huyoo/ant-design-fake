@@ -1,3 +1,10 @@
+# 项目待重构
+项目已经两年未更新，使用到的框架技术落后主流版本太多，现考虑重构，暂定使用 ```typescript + react17 + mobx + antd4+```为架构。准备ing...
+
+## 旧版本
+```react(16.9) + react-router(5.0) + redux(4.0.1) + antd(3.23.1) + less + *```  [链接](https://github.com/huyoo/ant-pro-of-react/tree/v1)
+
+# v1
 1. 本项目用于学习和研究React全家桶
 2. 参考案例：[AntPro预览地址](https://preview.pro.ant.design)    [AntPro源码仓库地址](https://github.com/ant-design/ant-design-pro)  
    框架、组件库以及主要的工具包版本如下
