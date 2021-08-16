@@ -1,51 +1,46 @@
-# 项目待重构
-项目已经两年未更新，使用到的框架技术落后主流版本太多，现考虑重构，暂定使用 ```typescript + react17 + mobx + antd4+```为架构。准备ing...
+# Getting Started with Create React App
 
-## 旧版本
-```react(16.9) + react-router(5.0) + redux(4.0.1) + antd(3.23.1) + less + *```  [链接](https://github.com/huyoo/ant-pro-of-react/tree/v1)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# v1
-1. 本项目用于学习和研究React全家桶
-2. 参考案例：[AntPro预览地址](https://preview.pro.ant.design)    [AntPro源码仓库地址](https://github.com/ant-design/ant-design-pro)  
-   框架、组件库以及主要的工具包版本如下
-   ```
-   "react": "^16.9.0",
-   "react-dom": "^16.9.0",
-   "react-redux": "^7.1.1",
-   "react-router": "^5.0.0",
-   "react-router-dom": "^5.0.0",
-   "react-scripts": "^3.0.1",
-   "redux": "^4.0.1",
-   "antd": "^3.23.1",
-   "less": "^3.9.0",
-   "less-loader": "^4.1.0",
-   "customize-cra": "^0.2.12",
-   "react-app-rewired": "^1.6.2",
-   "babel-plugin-import": "^1.11.0",
-   "babel-plugin-transform-decorators-legacy": "~1.3.4",
-   "react-intl-universal": "^1.15.5",
-   ```
-   创建项目使用react-create-app 2.0生成  
-   开发工具：Webstorm  
-   开发平台：Windows10
-   
-# 主要的功能点
-1. ~~了解并使用react~~
-2. ~~使用Antd~~
-3. ~~加入React-Route，实现路由跳转~~
-4. 发现AntPro，尝试用不同的技术仿制出一个完整的AntPro
-5. ~~加入Redux，尝试将数据放到store里管理~~
-6. ~~多语言配置~~
-7. ~~加入mock，实现数据请求接口管理~~
-8. ~~加入Less,实现样式文件预编译~~
-9. ~~开发环境、生产环境的配置分离~~(使用cross-env实现)
-10. 移动端展示效果
-11. 多语言、布局方式切换
-12. 组件迁移
-    1. 表格下拉选择-TableSelect
-    2. cron配置器-CronBuilder
-    3. 可拖拽弹窗-DragModal
-    4. 带请求的选择-SelectWithService
-    5. 带请求的树形选择-TreeSelectWithService
-    6. 表格穿梭-TableTransfer
-    7. 加载动画组件-Loading
+## Available Scripts
+
+In the project directory, you can run:
+
+### `yarn start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+### `yarn test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
