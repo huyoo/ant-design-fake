@@ -1,5 +1,5 @@
 # 项目待重构
-项目已经两年未更新，使用到的框架技术落后主流版本太多，现考虑重构，暂定使用 ```typescript + react17 + mobx + antd4+```为架构。准备ing...
+项目已经两年未更新，使用到的框架技术落后主流版本太多，现考虑重构，暂定使用 ```typescript + react17 + mobx + antd4+```为架构，代码记录在[dev分支](https://github.com/huyoo/ant-pro-of-react/tree/dev)
 
 ## 旧版本
 ```react(16.9) + react-router(5.0) + redux(4.0.1) + antd(3.23.1) + less + *```  [链接](https://github.com/huyoo/ant-pro-of-react/tree/v1)
