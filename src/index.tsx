@@ -5,11 +5,11 @@ import './index.css';
 import 'antd/dist/antd.css';
 import {cloneDeep} from 'lodash';
 
-const routes = cloneDeep(require('../config/route.config'))
+const routes = cloneDeep(require('../config/route.config'));
 
 function routeLoad(menuList) {
   for (let i = 0; i < menuList.length; i++) {
-    const item = menuList[i]
+    const item = menuList[i];
 
     if (item.component) {
       // TODO 异步加载的配置暂时没找到更好的方案，后续再研究
@@ -18,7 +18,7 @@ function routeLoad(menuList) {
     }
 
     if (item.routes?.length) {
-      routeLoad(item.routes)
+      routeLoad(item.routes);
     }
   }
 }
@@ -30,24 +30,24 @@ function render(menuList) {
   menuList.forEach((item, index) => {
     if (item.routes?.length) {
       if (item.component) {
-        const Page = item.component
+        const Page = item.component;
 
-        route.push(<Page>{render(item.routes)}</Page>)
+        route.push(<Page>{render(item.routes)}</Page>);
         return;
       }
-      route = route.concat(render(item.routes))
+      route = route.concat(render(item.routes));
       return;
     }
 
     if (item.component && item.name) {
-      route.push(<Route key={item.name} path={item.path} component={item.component}/>)
+      route.push(<Route key={item.name} path={item.path} component={item.component} />);
     }
-  })
+  });
 
-  return route
+  return route;
 }
 
-routeLoad(routes)
+routeLoad(routes);
 
 ReactDOM.render(
   <React.StrictMode>

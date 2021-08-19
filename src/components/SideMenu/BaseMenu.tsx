@@ -1,5 +1,5 @@
 /**
- * @DECS:
+ * @DECS: 菜单
  * @AUTH: hy
  * @DATE: 2021-08-17
  */
@@ -7,7 +7,7 @@ import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import {Menu} from "antd";
 
-const menuData = require("../../../config/route.config")
+const menuData = require("../../../config/route.config");
 
 const {Item, SubMenu} = Menu;
 
@@ -26,9 +26,9 @@ function createMenu(menu, i = '0') {
     } else if (children?.length) {
 
       // @ts-ignore
-      return <SubMenu key={key} title={(icon ? (<span>{getIcon(icon)}<span>{name}</span></span>) : name)}>
+      return (<SubMenu key={key} title={(icon ? (<span>{getIcon(icon)}<span>{name}</span></span>) : name)}>
         {createMenu(children, key)}
-      </SubMenu>;
+      </SubMenu>);
     }
     return null;
   }).filter(e => e);
@@ -36,10 +36,14 @@ function createMenu(menu, i = '0') {
 
 //遍历菜单数据，生成组件
 const formatter = menu => {
-  if (!menu) return [];
+  if (!menu) {
+    return [];
+  }
 
   return menu.map(item => {
-    if (!item.name && !item?.routes) return null;
+    if (!item.name && !item?.routes) {
+      return null;
+    }
 
     let result = {
       name: item.name,
@@ -56,20 +60,20 @@ const formatter = menu => {
     }
 
     if (!result.children?.length) {
-      delete result.children
+      delete result.children;
     }
 
     return result;
-  }).filter(Boolean)
+  }).filter(Boolean);
 };
 
 //路径
 const getLink = ({path, name}) => {
-  return <Link to={path || null}>{name}</Link>
+  return <Link to={path || null}>{name}</Link>;
 };
-//图标
-const getIcon = icon => {
-  return null// <Icon type={icon} theme="outlined"/>
+
+const getIcon = icon => {//图标
+  return null;//<Icon type={icon} theme="outlined"/>
 };
 
 export interface BaseMenuProp {
@@ -80,18 +84,19 @@ const BaseMenu: React.FC<BaseMenuProp> = () => {
 
   const handleClick = (ev) => {
     console.log('menuClick', ev);
-    setPath(ev.keyPath)
-  }
+    setPath(ev.keyPath);
+  };
 
   return (
     <Menu theme="dark"
-          mode="inline"
-          defaultOpenKeys={path}
-          selectedKeys={[path[0]]}
-          onClick={handleClick}>
+      mode="inline"
+      defaultOpenKeys={path}
+      selectedKeys={[path[0]]}
+      onClick={handleClick}
+    >
       {createMenu(formatter(menuData))}
     </Menu>
-  )
-}
+  );
+};
 
 export default BaseMenu;

@@ -4,7 +4,7 @@
  * @DATE: 2021-08-17
  */
 import React from "react";
-import {Layout} from "antd"
+import {Layout} from "antd";
 import {MenuFoldOutlined, MenuUnfoldOutlined} from "@ant-design/icons";
 
 const style = {
@@ -23,11 +23,11 @@ const ContentHeader: React.FC<ContentHeaderProp> = (props) => {
 
   return (
     <Layout.Header style={style}>
-       <span onClick={handleMenuCollapse}>
-         {collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
-       </span>
+      <span onClick={handleMenuCollapse}>
+        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+      </span>
     </Layout.Header>
-  )
-}
+  );
+};
 
 export default ContentHeader;

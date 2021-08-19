@@ -5,9 +5,9 @@
  */
 import React from "react";
 import {Layout} from "antd";
-import logo from "../../assets/logo.svg"
+import logo from "../../assets/logo.svg";
 import BaseMenu from "./BaseMenu";
-import "./style.less"
+import "./style.less";
 
 export interface SideMenuProp {
   collapsed: boolean
@@ -16,13 +16,13 @@ export interface SideMenuProp {
 const SideMenu: React.FC<SideMenuProp> = ({collapsed}) => {
   return (
     <Layout.Sider width={256} breakpoint="lg" collapsed={collapsed}>
-      <div className='logo'>
-        <img src={logo} alt="logo"/>
+      <div className="logo">
+        <img src={logo} alt="logo" />
         <h1>Ant Design Pro</h1>
       </div>
-      <BaseMenu/>
+      <BaseMenu />
     </Layout.Sider>
-  )
-}
+  );
+};
 
 export default SideMenu;
