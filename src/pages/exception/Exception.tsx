@@ -31,7 +31,3 @@ const Exception: React.FC<ExceptionProp> = ({type, img, link, title, desc}) => {
 };
 
 export default Exception;
-
-export const Exception404 = () => <Exception type='404'/>;
-export const Exception403 = () => <Exception type='403'/>;
-export const Exception500 = () => <Exception type='500'/>;

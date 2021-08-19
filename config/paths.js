@@ -71,5 +71,23 @@ module.exports = {
 };
 
 
-
 module.exports.moduleFileExtensions = moduleFileExtensions;
+
+// 增加路由解析，这里非cra提供
+function releaseRoute(routes) {
+  let entryList = [];
+
+  routes.map(item => {
+    if (item.component) {
+      entryList.push(resolveModule(resolveApp, 'src/' + item.component))
+    }
+
+    if (item.routes) {
+      entryList = entryList.concat(releaseRoute(item.routes));
+    }
+  })
+
+  return entryList;
+}
+
+module.exports.releaseRoute = releaseRoute
