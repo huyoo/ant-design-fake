@@ -27,6 +27,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 // 解析路由配置，整合成一个多入口数组
 const routes = require('./route.config');
 const entry = paths.releaseRoute(routes);
+entry.push(paths.appIndexJs)
 
 const appPackageJson = require(paths.appPackageJson);
 
@@ -130,8 +131,6 @@ module.exports = function (webpackEnv) {
     return loaders;
   };
 
-  entry.push(paths.appIndexJs)
-  console.log(entry)
   return {
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
     // Stop compilation early in production
