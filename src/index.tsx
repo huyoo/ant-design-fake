@@ -1,4 +1,4 @@
-import React, {ReactNode, Suspense} from 'react';
+import React, {ReactNode} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import './index.css';
@@ -53,9 +53,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Switch>
-        <Suspense fallback={<div>加载中</div>}>
-          {render(routes)}
-        </Suspense>
+        {render(routes)}
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,

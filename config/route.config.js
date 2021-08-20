@@ -1,6 +1,10 @@
 
 module.exports = [
   {
+    name: '登录',
+    path: '/login',
+    component: './pages/Login',
+  },{
     path: '/',
     component: './layouts/BasicLayout',
     routes: [

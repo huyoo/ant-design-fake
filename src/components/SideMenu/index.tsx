@@ -7,7 +7,7 @@ import React from "react";
 import {Layout} from "antd";
 import logo from "../../assets/logo.svg";
 import BaseMenu from "./BaseMenu";
-import "./style.less";
+import style from "./style.less";
 
 export interface SideMenuProp {
   collapsed: boolean
@@ -15,10 +15,10 @@ export interface SideMenuProp {
 
 const SideMenu: React.FC<SideMenuProp> = ({collapsed}) => {
   return (
-    <Layout.Sider width={256} breakpoint="lg" collapsed={collapsed}>
+    <Layout.Sider width={256} breakpoint="lg" collapsed={collapsed} className={style.SideMenu}>
       <div className="logo">
         <img src={logo} alt="logo" />
-        <h1>Ant Design Pro</h1>
+        <h1>Ant Design Fake</h1>
       </div>
       <BaseMenu />
     </Layout.Sider>

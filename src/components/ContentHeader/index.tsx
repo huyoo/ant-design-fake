@@ -1,17 +1,15 @@
 /**
- * @DECS:
+ * @DECS: 顶部菜单栏
  * @AUTH: hy
  * @DATE: 2021-08-17
  */
 import React from "react";
-import {Layout} from "antd";
+import {Layout, Space} from "antd";
 import {MenuFoldOutlined, MenuUnfoldOutlined} from "@ant-design/icons";
+import UserMenu from "./UserMenu";
+import style from './style.less';
 
-const style = {
-  zIndex: 9,
-  boxShadow: "0 1px 3px rgba(0,21,41,.15)",
-  backgroundColor: "white"
-};
+const prefixCls = 'content-header';
 
 export interface ContentHeaderProp {
   collapsed: boolean
@@ -22,10 +20,16 @@ const ContentHeader: React.FC<ContentHeaderProp> = (props) => {
   const {collapsed, handleMenuCollapse} = props;
 
   return (
-    <Layout.Header style={style}>
+    <Layout.Header className={style.contentHeader}>
       <span onClick={handleMenuCollapse}>
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </span>
+
+      <div className={prefixCls+'-right'}>
+        <Space >
+          <UserMenu />
+        </Space>
+      </div>
     </Layout.Header>
   );
 };
