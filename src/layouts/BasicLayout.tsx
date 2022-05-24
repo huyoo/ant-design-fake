@@ -13,6 +13,7 @@ import {Layout as Lay} from "antd";
 const {Content, Footer} = Lay;
 
 export interface BasicLayoutProp {
+  children?: React.ReactNode
 }
 
 const BasicLayout: React.FC<BasicLayoutProp> = (props) => {
@@ -21,6 +22,8 @@ const BasicLayout: React.FC<BasicLayoutProp> = (props) => {
   const toggleMenu = () => {
     setCollapsed(!collapsed);
   };
+
+  console.log(props.children);
 
   return (
     <Layout style={{flexDirection: 'inherit'}}>

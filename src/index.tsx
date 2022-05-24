@@ -1,9 +1,12 @@
 import React, {ReactNode} from 'react';
-import ReactDOM from 'react-dom';
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import ReactDOM from 'react-dom/client';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import './index.css';
 import 'antd/dist/antd.css';
 import {cloneDeep} from 'lodash';
+import Login from "./pages/Login";
+import BasicLayout from "./layouts/BasicLayout";
+import Exception403 from "./pages/exception/Exception403";
 
 const routes = cloneDeep(require('../config/route.config'));
 
@@ -23,8 +26,7 @@ function routeLoad(menuList) {
   }
 }
 
-function render(menuList) {
-
+const render = (menuList) => {
   let route: ReactNode[] = [];
 
   menuList.forEach((item, index) => {
@@ -32,7 +34,9 @@ function render(menuList) {
       if (item.component) {
         const Page = item.component;
 
-        route.push(<Page>{render(item.routes)}</Page>);
+        // route.push(<Page>{render(item.routes)}</Page>);
+
+        route.push(<Route key={index} path={item.path} element={<Page />}>{render(item.routes)}</Route>);
         return;
       }
       route = route.concat(render(item.routes));
@@ -40,25 +44,30 @@ function render(menuList) {
     }
 
     if (item.component && item.name) {
-      route.push(<Route key={item.name} path={item.path} component={item.component} />);
+      route.push(<Route key={item.name} path={item.path} element={item.component} />);
     }
   });
 
-  return route;
-}
+  return route as any;
+};
 
 routeLoad(routes);
 
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Switch>
-        {render(routes)}
-      </Switch>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(<React.StrictMode>
+  <BrowserRouter>
+    <Routes>
+      {/*{render(routes)}*/}
+      <Route path="login" element={<Login />} />
+      <Route path="/">
+        <>
+          <Route path="/exception/403" element={<Exception403 />} />
+        </>
+      </Route>
+    </Routes>
+  </BrowserRouter>
+</React.StrictMode>);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
