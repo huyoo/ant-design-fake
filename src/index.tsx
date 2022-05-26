@@ -1,12 +1,14 @@
 import React, {ReactNode} from 'react';
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import './index.css';
 import 'antd/dist/antd.css';
 import {cloneDeep} from 'lodash';
 import Login from "./pages/Login";
 import BasicLayout from "./layouts/BasicLayout";
 import Exception403 from "./pages/exception/Exception403";
+import Exception404 from "./pages/exception/Exception404";
+import Exception500 from "./pages/exception/Exception500";
 
 const routes = cloneDeep(require('../config/route.config'));
 
@@ -59,11 +61,12 @@ root.render(<React.StrictMode>
   <BrowserRouter>
     <Routes>
       {/*{render(routes)}*/}
+      <Route path="/" element={<Navigate to="/exception/403" />} />
       <Route path="login" element={<Login />} />
-      <Route path="/">
-        <>
-          <Route path="/exception/403" element={<Exception403 />} />
-        </>
+      <Route path="exception" element={<BasicLayout />}>
+        <Route path="403" element={<Exception403 />} />
+        <Route path="404" element={<Exception404 />} />
+        <Route path="500" element={<Exception500 />} />
       </Route>
     </Routes>
   </BrowserRouter>
