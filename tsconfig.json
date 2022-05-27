@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "jsx":"react", //tsx转换为js，不是不是jsx
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": false,
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

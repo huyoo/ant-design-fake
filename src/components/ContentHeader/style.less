@@ -1,0 +1,36 @@
+@header: ~'content-header';
+
+.contentHeader {
+  z-index: 9;
+  box-shadow: 0 1px 3px rgba(0, 21, 41, .15);
+  background-color: white !important;
+
+  :global {
+    .@{header}-right {
+      display: inline-block;
+      float: right;
+
+      .ant-dropdown-trigger {
+        display: block;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, .025);
+        }
+      }
+
+      .ant-avatar {
+        margin-top: -8px;
+        padding-right: 4px;
+      }
+    }
+  }
+}
+
+.headerMenu{
+  :global {
+    .ant-dropdown-menu-item .ant-dropdown-menu-title-content > span:last-of-type{
+      margin-left: 4px;
+    }
+  }
+}

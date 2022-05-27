@@ -1,0 +1,53 @@
+.Login{
+  background-image: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg);
+  background-repeat: no-repeat;
+  background-position: center 110px;
+  background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  overflow: auto;
+  background-color: #f0f2f5;
+
+  & > div{
+    flex: 1 1;
+    padding: 72px 0 24px;
+
+    :global{
+      .logo {
+        margin-bottom: 40px;
+        text-align: center;
+
+        img{
+          height: 44px;
+          margin-right: 16px;
+          vertical-align: bottom;
+        }
+
+        h1{
+          display: inline-block;
+          margin: 0;
+          line-height: 44px;
+          font-weight: 600;
+          font-size: 33px;
+        }
+
+        .desc{
+          margin-top: 12px;
+          //margin-bottom: 40px;
+          color: rgba(0,0,0,.45);
+          font-size: 14px;
+        }
+      }
+
+      form {
+        width: 328px;
+
+        .ant-input-prefix {
+          color: #1890ff;
+        }
+      }
+    }
+  }
+}
