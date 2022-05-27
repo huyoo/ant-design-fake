@@ -6,7 +6,7 @@ const menuData = require("../../../config/route.config");
 
 const {Item, SubMenu} = Menu;
 
-function createMenu(menu, i = '0') {
+const createMenu = (menu, i = '0') => {
   return menu.map((item, index) => {
     const {
         path,
@@ -27,7 +27,7 @@ function createMenu(menu, i = '0') {
     }
     return null;
   }).filter(e => e);
-}
+};
 
 //遍历菜单数据，生成组件
 const formatter = menu => {
@@ -67,8 +67,8 @@ const getLink = ({path, name}) => {
   return <Link to={path || null}>{name}</Link>;
 };
 
-const getIcon = icon => {//图标
-  return null;//<Icon type={icon} theme="outlined"/>
+const getIcon = () => { // 图标
+  return null; // <Icon type={icon} theme="outlined"/>
 };
 
 export interface BaseMenuProp {
