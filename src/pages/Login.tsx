@@ -1,8 +1,3 @@
-/**
- * @DECS: 登录
- * @AUTH: hy
- * @DATE: 2021-08-20
- */
 import {Button, Form, Input} from "antd";
 import React from "react";
 import style from "./Login.less";

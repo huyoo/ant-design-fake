@@ -25,14 +25,14 @@ const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 // 解析路由配置，整合成一个多入口数组
-const routes = require('./route.config');
-const entry = paths.releaseRoute(routes);
-entry.push(paths.appIndexJs)
+// const routes = require('./route.config');
+// const entry = paths.releaseRoute(routes);
+// entry.push(paths.appIndexJs)
 
 const appPackageJson = require(paths.appPackageJson);
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+const shouldUseSourceMap = false;//process.env.GENERATE_SOURCEMAP !== 'false';
 
 const webpackDevClientEntry = require.resolve(
   'react-dev-utils/webpackHotDevClient'
@@ -163,13 +163,13 @@ module.exports = function (webpackEnv) {
             // Finally, this is your app's code:
 
             // paths.appIndexJs,
-          ...entry
+            paths.appIndexJs
 
             // We include the app code last so that if there is a runtime error during
             // initialization, it doesn't blow up the WebpackDevServer client, and
             // changing JS code would still trigger a refresh.
           ]
-        : entry,
+        : paths.appIndexJs,
     output: {
       // The build folder.
       path: isEnvProduction ? paths.appBuild : undefined,
@@ -303,6 +303,10 @@ module.exports = function (webpackEnv) {
         // Make sure your source files are compiled, as they will not be processed in any way.
 
         // 将config文件夹增加到webpack的打包范围中
+        // new ModuleScopePlugin([paths.appSrc, paths.appSrc.replace('src', 'config')], [
+        //   paths.appPackageJson,
+        //   reactRefreshOverlayEntry,
+        // ]),
         new ModuleScopePlugin([paths.appSrc, paths.appSrc.replace('src', 'config')], [
           paths.appPackageJson,
           reactRefreshOverlayEntry,

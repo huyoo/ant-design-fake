@@ -1,8 +1,3 @@
-/**
- * @DECS: 顶部菜单栏
- * @AUTH: hy
- * @DATE: 2021-08-17
- */
 import React from "react";
 import {Layout, Space} from "antd";
 import {MenuFoldOutlined, MenuUnfoldOutlined} from "@ant-design/icons";

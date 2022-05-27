@@ -1,16 +1,16 @@
 import React, {ReactNode} from 'react';
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import {HashRouter, Navigate, Route, Routes} from "react-router-dom";
 import './index.css';
 import 'antd/dist/antd.css';
-import {cloneDeep} from 'lodash';
+// import {cloneDeep} from 'lodash';
 import Login from "./pages/Login";
 import BasicLayout from "./layouts/BasicLayout";
 import Exception403 from "./pages/exception/Exception403";
 import Exception404 from "./pages/exception/Exception404";
 import Exception500 from "./pages/exception/Exception500";
 
-const routes = cloneDeep(require('../config/route.config'));
+// const routes = cloneDeep(require('../config/route.config'));
 
 function routeLoad(menuList) {
   for (let i = 0; i < menuList.length; i++) {
@@ -53,12 +53,12 @@ const render = (menuList) => {
   return route as any;
 };
 
-routeLoad(routes);
+// routeLoad(routes);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(<React.StrictMode>
-  <BrowserRouter>
+  <HashRouter>
     <Routes>
       {/*{render(routes)}*/}
       <Route path="/" element={<Navigate to="/exception/403" />} />
@@ -69,7 +69,7 @@ root.render(<React.StrictMode>
         <Route path="500" element={<Exception500 />} />
       </Route>
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 </React.StrictMode>);
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,8 +1,3 @@
-/**
- * @DECS: 用戶下拉菜單
- * @AUTH: hy
- * @DATE: 2021-08-20
- */
 import React from "react";
 import {Avatar, Dropdown, Menu} from "antd";
 import {LogoutOutlined, SettingOutlined, UserOutlined} from "@ant-design/icons";

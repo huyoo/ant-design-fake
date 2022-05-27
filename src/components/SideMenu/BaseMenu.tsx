@@ -1,8 +1,3 @@
-/**
- * @DECS: 菜单
- * @AUTH: hy
- * @DATE: 2021-08-17
- */
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import {Menu} from "antd";

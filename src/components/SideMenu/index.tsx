@@ -1,8 +1,3 @@
-/**
- * @DECS:
- * @AUTH: hy
- * @DATE: 2021-08-17
- */
 import React from "react";
 import {Layout} from "antd";
 import logo from "../../assets/logo.svg";

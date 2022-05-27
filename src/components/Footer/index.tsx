@@ -1,8 +1,3 @@
-/**
- * @DECS:
- * @AUTH: hy
- * @DATE: 2021-08-17
- */
 import React from "react";
 import {Link} from "react-router-dom";
 import {CopyrightOutlined, GithubOutlined} from "@ant-design/icons";
@@ -16,13 +11,13 @@ const Footer = () => {
           <Link to="/home">Pro 首页</Link>
         </span>
         <span>
-          <a href="https://github.com/ant-design/ant-design-pro">
+          <a href="https://github.com/huyoo/ant-design-fake">
             <GithubOutlined />
           </a>
         </span>
-        <span>Ant Design</span>
+        <span>Ant Design Fake</span>
       </div>
-      <div>Copyright &nbsp; <CopyrightOutlined /> &nbsp;2018&nbsp;蚂蚁金服体验技术部出品</div>
+      <div>&nbsp; <CopyrightOutlined /> &nbsp;2018&nbsp;大象银服山寨技术部出品</div>
     </div>
   );
 };
