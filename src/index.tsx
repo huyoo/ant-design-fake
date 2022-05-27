@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {HashRouter, Navigate, Route, Routes} from "react-router-dom";
 import './index.css';
@@ -12,7 +12,7 @@ import Exception500 from "./pages/exception/Exception500";
 
 // const routes = cloneDeep(require('../config/route.config'));
 
-function routeLoad(menuList) {
+/*const routeLoad = (menuList) => {
   for (let i = 0; i < menuList.length; i++) {
     const item = menuList[i];
 
@@ -26,7 +26,7 @@ function routeLoad(menuList) {
       routeLoad(item.routes);
     }
   }
-}
+};
 
 const render = (menuList) => {
   let route: ReactNode[] = [];
@@ -51,7 +51,7 @@ const render = (menuList) => {
   });
 
   return route as any;
-};
+};*/
 
 // routeLoad(routes);
 

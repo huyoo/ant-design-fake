@@ -32,7 +32,7 @@ module.exports = {
       },
     ],
     "semi": ['error', "always"],
-    'line-comment-position': ['warn', {position: 'above'}], // 此规则强制行注释的一致性。
+    // 'line-comment-position': ['warn', {position: 'above'}], // 此规则强制行注释的一致性。
     'lines-around-comment': ['error'], // 此规则在评论之前和/或之后需要空行。
     'jsx-quotes': ['error'], // 对于 JSX 属性值总是使用双引号("), 其他均使用单引号(')
     'keyword-spacing': ['error'], // 此规则强制执行围绕关键字和关键字标记的一致空格

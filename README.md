@@ -1,10 +1,9 @@
-# 项目待重构
+# Ant Design Fake
 
-项目已经两年未更新，使用到的框架技术落后主流版本太多，现考虑重构，暂定使用 ```typescript + react17 + mobx + antd4+ + less```为架构。搭建ing...
+使用 react 原生技术栈搭建的管理系统。系统仿照 [ant-design-pro](https://pro.ant.design/)， [预览地址](https://preview.pro.ant.design)。
 
-
-## 旧版本
-```react(16.9) + react-router(5.0) + redux(4.0.1) + antd(3.23.1) + less + *```  [链接](https://github.com/huyoo/ant-pro-of-react/tree/v1)
+## 项目重构中
+重构升级中，暂定使用 ```typescript + react18 + mobx + antd4+ + less```为架构。搭建ing...。
 
 ## 关注点
 - 使用 hooks 重构
@@ -23,3 +22,6 @@
    5. 带请求的树形选择-TreeSelectWithService
    6. 表格穿梭-TableTransfer
    7. 加载动画组件-Loading
+
+## v1版本
+```react(16.9) + react-router(5.0) + redux(4.0.1) + antd(3.23.1) + less + *```  [链接](https://github.com/huyoo/ant-pro-of-react/tree/v1)
