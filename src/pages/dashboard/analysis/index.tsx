@@ -1,10 +1,10 @@
-import { EllipsisOutlined } from "@ant-design/icons";
-import {Col, Dropdown, Menu, RadioChangeEvent, Row} from "antd";
-import type { RangePickerProps } from "antd/es/date-picker/generatePicker";
+import {EllipsisOutlined} from "@ant-design/icons";
+import {Dropdown, Menu, RadioChangeEvent} from "antd";
+import type {RangePickerProps} from "antd/es/date-picker/generatePicker";
 import React, {FC, useState} from "react";
 import SalesCard, {TimeType} from "./components/SalesCard";
 import moment from "moment";
-import { getTimeDistance } from "../../../utils/tools";
+import {getTimeDistance} from "../../../utils/tools";
 import styles from "./styles.less";
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
@@ -87,18 +87,14 @@ const Analysis: FC<AnalysisProps> = () => {
 
   return (
     <>
-      <Row >
-        <Col span={24}>
-          <SalesCard
-            rangePickerValue={rangePickerValue}
-            salesData={data?.salesData || []}
-            isActive={isActive}
-            handleRangePickerChange={handleRangePickerChange}
-            loading={false}
-            selectDate={selectDate}
-          />
-        </Col>
-      </Row>
+      <SalesCard
+        rangePickerValue={rangePickerValue}
+        salesData={data?.salesData || []}
+        isActive={isActive}
+        handleRangePickerChange={handleRangePickerChange}
+        loading={false}
+        selectDate={selectDate}
+      />
     </>
   );
 };

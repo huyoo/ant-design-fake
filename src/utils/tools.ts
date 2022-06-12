@@ -2,7 +2,7 @@ import {RangePickerProps} from "antd/es/date-picker/generatePicker";
 import moment from "moment";
 
 export const formatNumber = (num: number) => {
-  return num.toString().replace(/(?=(\d{3})$)+/, ',');
+  return num.toString().replace(/(?!^)(?=(\d{3})+$)/g, ',');
 };
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
