@@ -9,6 +9,7 @@ import BasicLayout from "./layouts/BasicLayout";
 import Exception403 from "./pages/exception/Exception403";
 import Exception404 from "./pages/exception/Exception404";
 import Exception500 from "./pages/exception/Exception500";
+import Analysis from "./pages/dashboard/analysis";
 
 // const routes = cloneDeep(require('../config/route.config'));
 
@@ -63,6 +64,9 @@ root.render(<React.StrictMode>
       {/*{render(routes)}*/}
       <Route path="/" element={<Navigate to="/exception/403" />} />
       <Route path="login" element={<Login />} />
+      <Route path="dashboard" element={<BasicLayout />}>
+        <Route path="analysis" element={<Analysis />} />
+      </Route>
       <Route path="exception" element={<BasicLayout />}>
         <Route path="403" element={<Exception403 />} />
         <Route path="404" element={<Exception404 />} />
