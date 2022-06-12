@@ -51,7 +51,7 @@ const formatter = menu => {
     }
 
     if (!item.name) {
-      return result.children[0];
+      return result.children;
     }
 
     if (!result.children?.length) {
@@ -59,7 +59,7 @@ const formatter = menu => {
     }
 
     return result;
-  }).filter(Boolean);
+  }).filter(Boolean).flat(1);
 };
 
 //路径
