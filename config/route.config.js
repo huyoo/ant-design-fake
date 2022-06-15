@@ -1,6 +1,9 @@
 
 module.exports = [
   {
+    path: '/',
+    redirect: '/dashboard/analysis'
+  }, {
     name: '登录',
     path: '/login',
     component: './pages/Login',
