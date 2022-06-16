@@ -38,7 +38,7 @@ module.exports = {
     'keyword-spacing': ['error'], // 此规则强制执行围绕关键字和关键字标记的一致空格
     'max-params': ['warn', 6], // 此规则强制实现函数定义中允许的最大数量的参数。
     'no-param-reassign': ['warn'],
-    'no-unused-vars': ['warn'],
+    'no-unused-vars': 'off',
     'no-unused-expressions': 'off',
     'no-shadow': ['warn'],
     'no-restricted-syntax': ['off', 'FunctionExpression', 'WithStatement', "BinaryExpression[operator='in']"],
