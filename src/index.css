@@ -18,3 +18,7 @@ code {
 .ant-layout-sider-collapsed > .ant-layout-sider-children > .logo >h1{
   display: none;
 }
+
+.ant-layout-content {
+  margin: 24px;
+}

@@ -1,6 +1,6 @@
 # Ant Design Fake
 
-使用 react 原生技术栈搭建的管理系统。系统仿照 [ant-design-pro](https://pro.ant.design/)， [预览地址](https://preview.pro.ant.design)。
+使用 react 原生技术栈搭建的管理系统。系统仿照 [ant-design-pro](https://pro.ant.design)， [预览地址](https://preview.pro.ant.design)。
 
 ## 项目重构中
 重构升级中，暂定使用 ```typescript + react18 + mobx + antd4+ + less```为架构。搭建ing...。

@@ -1,6 +1,9 @@
 
 module.exports = [
   {
+    path: '/',
+    redirect: '/dashboard/analysis'
+  }, {
     name: '登录',
     path: '/login',
     component: './pages/Login',
@@ -8,6 +11,18 @@ module.exports = [
     path: '/',
     component: './layouts/BasicLayout',
     routes: [
+      {
+        name: 'Dashboard',
+        icon: "dashboard",
+        path: '/dashboard',
+        routes: [
+          {
+            path: "/dashboard/analysis",
+            component: './pages/dashboard/analysis',
+            name: "分析页",
+          },
+        ]
+      },
       {
         name: '异常页',
         icon: "warning",
