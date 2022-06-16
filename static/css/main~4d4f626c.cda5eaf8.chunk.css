@@ -19,3 +19,7 @@ code {
   display: none;
 }
 
+.ant-layout-content {
+  margin: 24px;
+}
+
