@@ -32,7 +32,7 @@ type SalesCardProps = {
 const SalesCard: FC<SalesCardProps> = (
   {
     rangePickerValue,
-    salesData,
+    // salesData,
     isActive,
     handleRangePickerChange,
     loading,

@@ -7,6 +7,11 @@ export const formatNumber = (num: number) => {
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
 
+/**
+ * 计算时间巨鹿
+ * @param {string} type 日期类型
+ * @return {RangePickerValue} value
+ */
 export function getTimeDistance(type: 'today' | 'week' | 'month' | 'year'): RangePickerValue {
   const now = new Date();
   const oneDay = 1000 * 60 * 60 * 24;

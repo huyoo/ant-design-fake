@@ -1,5 +1,5 @@
-import {EllipsisOutlined} from "@ant-design/icons";
-import {Dropdown, Menu, RadioChangeEvent} from "antd";
+// import {EllipsisOutlined} from "@ant-design/icons";
+// import {Menu} from "antd";
 import type {RangePickerProps} from "antd/es/date-picker/generatePicker";
 import React, {FC, useState} from "react";
 import SalesCard, {TimeType} from "./components/SalesCard";
@@ -8,14 +8,14 @@ import {getTimeDistance} from "../../../utils/tools";
 import styles from "./styles.less";
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
-type SalesType = 'all' | 'online' | 'stores';
+// type SalesType = 'all' | 'online' | 'stores';
 
 type AnalysisProps = {}
 
 const Analysis: FC<AnalysisProps> = () => {
 
-  const [salesType, setSalesType] = useState<SalesType>('all');
-  const [currentTabKey, setCurrentTabKey] = useState<string>('');
+  // const [salesType, setSalesType] = useState<SalesType>('all');
+  // const [currentTabKey, setCurrentTabKey] = useState<string>('');
   const [rangePickerValue, setRangePickerValue] = useState<RangePickerValue>(
     getTimeDistance('year'),
   );
@@ -53,37 +53,37 @@ const Analysis: FC<AnalysisProps> = () => {
     return '';
   };
 
-  let salesPieData;
-  if (salesType === 'all') {
-    salesPieData = data?.salesTypeData;
-  } else {
-    salesPieData = salesType === 'online' ? data?.salesTypeDataOnline : data?.salesTypeDataOffline;
-  }
+  // let salesPieData;
+  // if (salesType === 'all') {
+  //   salesPieData = data?.salesTypeData;
+  // } else {
+  //   salesPieData = salesType === 'online' ? data?.salesTypeDataOnline : data?.salesTypeDataOffline;
+  // }
 
-  const menu = (
-    <Menu>
-      <Menu.Item>操作一</Menu.Item>
-      <Menu.Item>操作二</Menu.Item>
-    </Menu>
-  );
+  // const menu = (
+  //   <Menu>
+  //     <Menu.Item>操作一</Menu.Item>
+  //     <Menu.Item>操作二</Menu.Item>
+  //   </Menu>
+  // );
 
-  const dropdownGroup = (
-    <span>
-      <Dropdown overlay={menu} placement="bottomRight">
-        <EllipsisOutlined />
-      </Dropdown>
-    </span>
-  );
-
-  const handleChangeSalesType = (e: RadioChangeEvent) => {
-    setSalesType(e.target.value);
-  };
-
-  const handleTabChange = (key: string) => {
-    setCurrentTabKey(key);
-  };
-
-  const activeKey = currentTabKey || (data?.offlineData[0] && data?.offlineData[0].name) || '';
+  // const dropdownGroup = (
+  //   <span>
+  //     <Dropdown overlay={menu} placement="bottomRight">
+  //       <EllipsisOutlined />
+  //     </Dropdown>
+  //   </span>
+  // );
+  //
+  // const handleChangeSalesType = (e: RadioChangeEvent) => {
+  //   setSalesType(e.target.value);
+  // };
+  //
+  // const handleTabChange = (key: string) => {
+  //   setCurrentTabKey(key);
+  // };
+  //
+  // const activeKey = currentTabKey || (data?.offlineData[0] && data?.offlineData[0].name) || '';
 
   return (
     <>
