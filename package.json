@@ -18,7 +18,8 @@
     "react-router-dom": "~6.3.0",
     "antd": "~4.20.6",
     "lodash": "^4.17.21",
-    "moment": "^2.29.3"
+    "moment": "~2.29.3",
+    "echarts": "~5.3.3"
   },
   "devDependencies": {
     "@babel/core": "7.12.3",
