@@ -3,12 +3,17 @@ import React from "react";
 import style from "./Login.less";
 import logo from "../assets/logo.svg";
 import {LockOutlined, UserOutlined} from "@ant-design/icons";
+import { observer } from "mobx-react";
+import {useStores} from "../stores";
 
 export interface LoginProp {
 }
 
 const Login: React.FC<LoginProp> = (props) => {
   const {} = props;
+
+  const store = useStores();
+  console.log(store);
 
   const handleSubmit = () => {
     window.location.href = window.location.href.replace("/login", '');
@@ -38,4 +43,4 @@ const Login: React.FC<LoginProp> = (props) => {
   );
 };
 
-export default Login;
+export default observer(Login);
