@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useRef} from "react";
+import React, {FC, useEffect, useMemo, useRef} from "react";
 import {Card, Col, DatePicker, Row, Tabs} from "antd";
 import type {RangePickerProps} from "antd/es/date-picker/generatePicker";
 import type moment from 'moment';
@@ -6,8 +6,8 @@ import * as echarts from "echarts";
 import {throttle} from "lodash";
 
 import styles from '../styles.less';
-import {formatNumber} from "../../../../utils/tools";
-import {useMemorizedFn} from "../../../../utils/hooks";
+import {formatNumber} from "@/utils/tools";
+import {useMemorizedFn} from "@/utils/hooks";
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
 export type TimeType = 'today' | 'week' | 'month' | 'year';
@@ -58,7 +58,8 @@ type SalesCardProps = {
   selectDate: (key: TimeType) => void;
 }
 
-let chartInstance = null;
+let viewChartInstance = null;
+let saleChartInstance = null;
 
 const SalesCard: FC<SalesCardProps> = (
   {
@@ -70,10 +71,11 @@ const SalesCard: FC<SalesCardProps> = (
     selectDate,
   }
 ) => {
-  const ref = useRef(null);
+  const saleRef = useRef(null);
+  const viewRef = useRef(null);
 
   useEffect(() => {
-    chartInstance = echarts.init(ref.current);
+    saleChartInstance = echarts.init(saleRef.current);
 
     const option = {
       ...chartOptions,
@@ -85,11 +87,26 @@ const SalesCard: FC<SalesCardProps> = (
         },
       ],
     };
+    saleChartInstance.setOption(option);
 
-    chartInstance.setOption(option);
+    viewChartInstance = echarts.init(viewRef.current);
+    const viewOption = {
+      ...chartOptions,
+      series: [
+        {
+          name: '访问量',
+          type: 'bar',
+          data: [717, 426, 1139, 595, 1103, 817, 687, 586, 814, 821, 1062, 515]
+        },
+      ],
+    };
+    viewChartInstance.setOption(viewOption);
   }, []);
 
-  const resizeChart = useMemorizedFn(throttle(() => chartInstance && chartInstance.resize(), 33));
+  const resizeChart = useMemorizedFn(throttle(() => {
+    saleChartInstance && saleChartInstance.resize();
+    viewChartInstance && viewChartInstance.resize();
+  }, 33));
 
   useEffect(() => {
     window.addEventListener('resize', resizeChart);
@@ -98,6 +115,13 @@ const SalesCard: FC<SalesCardProps> = (
       window.removeEventListener('resize', resizeChart);
     };
   }, []);
+
+  // echarts 重新计算画布宽高
+  const handleTabChange = () => {
+    setTimeout(() => {
+      resizeChart();
+    }, 0);
+  };
 
   const extraDom = (
     <div className={styles.salesExtraWrap}>
@@ -123,6 +147,24 @@ const SalesCard: FC<SalesCardProps> = (
     </div>
   );
 
+  const listDom = useMemo(() => (
+    <ul className={styles.rankingList}>
+      {rankingListData.map((item, i) => (
+        <li key={item.title}>
+          <span className={`${styles.rankingItemNumber} ${i < 3 ? styles.active : ''}`}>
+            {i + 1}
+          </span>
+          <span className={styles.rankingItemTitle} title={item.title}>
+            {item.title}
+          </span>
+          <span className={styles.rankingItemValue}>
+            {formatNumber(item.total)}
+          </span>
+        </li>
+      ))}
+    </ul>
+  ), [rankingListData]);
+
   return (
     <Card loading={loading} bordered={false} bodyStyle={{padding: 0}}>
       <div className={styles.salesCard}>
@@ -130,57 +172,34 @@ const SalesCard: FC<SalesCardProps> = (
           tabBarExtraContent={extraDom}
           size="large"
           tabBarStyle={{marginBottom: 24}}
+          onChange={handleTabChange}
         >
           <TabPane tab="销售额" key="sales">
             <Row>
               <Col xl={16} lg={12} md={12} sm={24} xs={24}>
                 <div className={styles.salesBar}>
-                  <div ref={ref} style={{height: 320}} />
+                  <div ref={saleRef} style={{height: 320}} />
                 </div>
               </Col>
               <Col xl={8} lg={12} md={12} sm={24} xs={24}>
                 <div className={styles.salesRank}>
                   <h4 className={styles.rankingTitle}>门店销售额排名</h4>
-                  <ul className={styles.rankingList}>
-                    {rankingListData.map((item, i) => (
-                      <li key={item.title}>
-                        <span className={`${styles.rankingItemNumber} ${i < 3 ? styles.active : ''}`}>
-                          {i + 1}
-                        </span>
-                        <span className={styles.rankingItemTitle} title={item.title}>
-                          {item.title}
-                        </span>
-                        <span className={styles.rankingItemValue}>
-                          {formatNumber(item.total)}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                  {listDom}
                 </div>
               </Col>
             </Row>
           </TabPane>
-          <TabPane tab="访问量" key="views">
+          <TabPane tab="访问量" key="views" forceRender>
             <Row>
               <Col xl={16} lg={12} md={12} sm={24} xs={24}>
-                <div className={styles.salesBar} />
+                <div className={styles.salesBar}>
+                  <div ref={viewRef} style={{height: 320}} />
+                </div>
               </Col>
               <Col xl={8} lg={12} md={12} sm={24} xs={24}>
                 <div className={styles.salesRank}>
                   <h4 className={styles.rankingTitle}>门店访问量排名</h4>
-                  <ul className={styles.rankingList}>
-                    {rankingListData.map((item, i) => (
-                      <li key={item.title}>
-                        <span className={`${styles.rankingItemNumber} ${i < 3 ? styles.active : ''}`}>
-                          {i + 1}
-                        </span>
-                        <span className={styles.rankingItemTitle} title={item.title}>
-                          {item.title}
-                        </span>
-                        <span>{formatNumber(item.total)}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {listDom}
                 </div>
               </Col>
             </Row>
