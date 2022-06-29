@@ -4,15 +4,14 @@ import type {RangePickerProps} from "antd/es/date-picker/generatePicker";
 import React, {FC, useState} from "react";
 import SalesCard, {TimeType} from "./components/SalesCard";
 import moment from "moment";
-import {getTimeDistance} from "../../../utils/tools";
+import {getTimeDistance} from "@/utils/tools";
 import styles from "./styles.less";
+import IntroduceRow from "@/pages/dashboard/analysis/components/IntroduceRow";
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
 // type SalesType = 'all' | 'online' | 'stores';
 
-type AnalysisProps = {}
-
-const Analysis: FC<AnalysisProps> = () => {
+const Analysis: FC = () => {
 
   // const [salesType, setSalesType] = useState<SalesType>('all');
   // const [currentTabKey, setCurrentTabKey] = useState<string>('');
@@ -87,6 +86,7 @@ const Analysis: FC<AnalysisProps> = () => {
 
   return (
     <>
+      <IntroduceRow loading={false} />
       <SalesCard
         rangePickerValue={rangePickerValue}
         salesData={data?.salesData || []}
