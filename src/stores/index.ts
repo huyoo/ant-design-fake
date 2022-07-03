@@ -1,12 +1,16 @@
 import login from "./login";
-import {createContext, useContext} from "react";
+import {Context, createContext, useContext} from "react";
+
+export interface StoreType {
+  login: typeof login
+}
 
 const stores = {
-  login
+  login,
 };
 
-const storesContext = createContext(stores);
+const storesContext: Context<StoreType> = createContext(stores);
 
-export const useStores = () => useContext<any>(storesContext);
+export const useStores = () => useContext<StoreType>(storesContext);
 
 export default stores;

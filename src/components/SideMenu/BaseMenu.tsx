@@ -36,7 +36,7 @@ const formatter = menu => {
   }
 
   return menu.map(item => {
-    if (!item.name && !item?.routes) {
+    if (!item.name && !item?.routes || item.hideInMenu) {
       return null;
     }
 

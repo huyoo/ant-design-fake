@@ -7,6 +7,7 @@ module.exports = [
     name: '登录',
     path: '/login',
     component: './pages/Login',
+    hideInMenu: true
   },{
     path: '/',
     component: './layouts/BasicLayout',
