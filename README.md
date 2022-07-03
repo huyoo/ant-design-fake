@@ -1,9 +1,18 @@
 # Ant Design Fake
 
-使用 react 原生技术栈搭建的管理系统。系统仿照 [ant-design-pro](https://pro.ant.design)， [预览地址](https://preview.pro.ant.design)。
+使用 react 原生技术栈搭建的管理系统，仿照了 [ant-design-pro](https://pro.ant.design)， 这是 Antd Pro 的[预览地址](https://preview.pro.ant.design)。
+项目使用 Github Actions 自动打包，最终将部署到 Github Pages，这是部署后的 [访问地址](https://huyoo.github.io/ant-design-fake)。
 
 ## 项目重构中
-重构升级中，暂定使用 ```typescript + react18 + mobx + antd4+ + less```为架构。搭建ing...。
+重构升级中，摒弃 class 组件，全部使用 hooks 开发，技术栈如下:
+```text
+typescript
+react18
+mobx
+antd4+
+less
+echarts
+```
 
 ## 关注点
 - 使用 hooks 重构

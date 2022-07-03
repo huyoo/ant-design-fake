@@ -4,7 +4,10 @@
     "module": "commonjs",
     "target": "es5",
     "sourceMap": false,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@/*": ["src/*"],
+    }
   },
   "exclude": [
     "node_modules"
