@@ -3,11 +3,10 @@ import {Avatar, Dropdown, Menu} from "antd";
 import {LogoutOutlined, SettingOutlined, UserOutlined} from "@ant-design/icons";
 import style from './style.less';
 import { Link } from "react-router-dom";
+import {useStores} from "../../stores";
 
-export interface UserMenuProp {
-}
-
-const UserMenu: React.FC<UserMenuProp> = () => {
+const UserMenu: React.FC = () => {
+  const {login: {userInfo}} = useStores();
 
   // const handleLogout;
 
@@ -34,8 +33,8 @@ const UserMenu: React.FC<UserMenuProp> = () => {
   return (
     <Dropdown overlay={menu}>
       <span>
-        <Avatar size={24} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-        <span>Username</span>
+        <Avatar size={24} src={userInfo.avatar} />
+        <span>{userInfo.name}</span>
       </span>
     </Dropdown>
   );

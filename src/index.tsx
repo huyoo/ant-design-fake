@@ -4,7 +4,10 @@ import {HashRouter, Navigate, Route, Routes} from "react-router-dom";
 import './index.css';
 import 'antd/dist/antd.css';
 import {cloneDeep} from 'lodash';
+import stores from './stores';
+import { Provider } from 'mobx-react';
 
+/** 生成路由 */
 const routes = cloneDeep(require('../config/route.config'));
 
 const routeLoad = (menuList) => {
@@ -66,14 +69,17 @@ const render = (menuList) => {
 
 routeLoad(routes);
 
+/** 渲染 */
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(<React.StrictMode>
-  <HashRouter>
-    <Routes>
-      {render(routes)}
-    </Routes>
-  </HashRouter>
+  <Provider {...stores}>
+    <HashRouter>
+      <Routes>
+        {render(routes)}
+      </Routes>
+    </HashRouter>
+  </Provider>
 </React.StrictMode>);
 
 // If you want to start measuring performance in your app, pass a function
