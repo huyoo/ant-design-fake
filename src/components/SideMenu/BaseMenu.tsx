@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import {Menu} from "antd";
+import {Icon} from "@ant-design/compatible";
 
 const menuData = require("../../../config/route.config");
 
@@ -9,21 +10,21 @@ const {Item, SubMenu} = Menu;
 const createMenu = (menu, i = '0') => {
   return menu.map((item, index) => {
     const {
-        path,
-        children,
-        icon,
-        name
-      } = item,
-      key = i + index + "";
+      path,
+      children,
+      icon,
+      name
+    } = item;
+    const key = i + index + "";
 
     if (path && !children?.length) {
       return <Item key={key}> {getLink(item)}</Item>;
     } else if (children?.length) {
-
-      // @ts-ignore
-      return (<SubMenu key={key} title={(icon ? (<span>{getIcon(icon)}<span>{name}</span></span>) : name)}>
-        {createMenu(children, key)}
-      </SubMenu>);
+      return (
+        <SubMenu key={key} icon={icon && getIcon(icon)} title={name}>
+          {createMenu(children, key)}
+        </SubMenu>
+      );
     }
     return null;
   }).filter(e => e);
@@ -43,7 +44,8 @@ const formatter = menu => {
     let result = {
       name: item.name,
       children: undefined,
-      path: item.path
+      path: item.path,
+      icon: item.icon
     };
 
     if (item.routes) {
@@ -67,18 +69,16 @@ const getLink = ({path, name}) => {
   return <Link to={path || null}>{name}</Link>;
 };
 
-const getIcon = () => { // 图标
-  return null; // <Icon type={icon} theme="outlined"/>
+// 图标
+const getIcon = (icon:string) => {
+  // @ts-ignore
+  return <Icon type={icon} />;
 };
 
-export interface BaseMenuProp {
-}
-
-const BaseMenu: React.FC<BaseMenuProp> = () => {
+const BaseMenu: React.FC = () => {
   const [path, setPath] = useState(['000', '00']);
 
   const handleClick = (ev) => {
-    console.log('menuClick', ev);
     setPath(ev.keyPath);
   };
 
