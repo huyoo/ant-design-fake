@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom/client';
 import {HashRouter, Navigate, Route, Routes} from "react-router-dom";
 import 'antd/dist/antd.css';
 import {cloneDeep} from 'lodash';
-import { Provider } from 'mobx-react';
-import {IntlProvider} from "react-intl";
-import zhCN from '@/locales/zh-CN';
-import enUS from '@/locales/en-US';
+import {Provider} from 'mobx-react';
+import IntlControl from "@/IntlControl";
 import stores from './stores';
 import './index.css';
 
@@ -76,15 +74,15 @@ routeLoad(routes);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(<React.StrictMode>
-  <IntlProvider locale="zh-CN" messages={zhCN as any}>
-    <Provider {...stores}>
+  <Provider {...stores}>
+    <IntlControl>
       <HashRouter>
         <Routes>
           {render(routes)}
         </Routes>
       </HashRouter>
-    </Provider>
-  </IntlProvider>
+    </IntlControl>
+  </Provider>
 </React.StrictMode>);
 
 // If you want to start measuring performance in your app, pass a function

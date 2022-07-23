@@ -54,6 +54,7 @@ const DEFAULT_USER = {
 
 class Login {
   userInfo: any = DEFAULT_USER;
+  locale: 'zh-CN';
 
   constructor() {
     makeAutoObservable(this);
@@ -73,6 +74,13 @@ class Login {
 
     this.userInfo = res;
     return true;
+  }
+
+  updateLocale(value) {
+    if (!value) {
+      return;
+    }
+    this.locale = value;
   }
 }
 
