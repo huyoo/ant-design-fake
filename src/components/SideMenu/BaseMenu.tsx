@@ -1,97 +1,116 @@
-import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import React, {useEffect, useMemo, useState} from "react";
+import {useLocation, useNavigate} from "react-router-dom";
 import {Menu} from "antd";
+import {Icon} from "@ant-design/compatible";
+import {useIntl} from "react-intl";
+import {observer} from "mobx-react";
+import {useStores} from "@/stores";
 
 const menuData = require("../../../config/route.config");
 
-const {Item, SubMenu} = Menu;
-
-const createMenu = (menu, i = '0') => {
-  return menu.map((item, index) => {
-    const {
-        path,
-        children,
-        icon,
-        name
-      } = item,
-      key = i + index + "";
-
-    if (path && !children?.length) {
-      return <Item key={key}> {getLink(item)}</Item>;
-    } else if (children?.length) {
-
-      // @ts-ignore
-      return (<SubMenu key={key} title={(icon ? (<span>{getIcon(icon)}<span>{name}</span></span>) : name)}>
-        {createMenu(children, key)}
-      </SubMenu>);
-    }
-    return null;
-  }).filter(e => e);
+// 图标
+const getIcon = (icon:string) => {
+  // @ts-ignore
+  return <Icon type={icon} />;
 };
 
-//遍历菜单数据，生成组件
-const formatter = menu => {
-  if (!menu) {
-    return [];
+// 查找当前页面对应的展开路径
+let initSelectedKeyPath = [];
+const findMenuPath = (menuList, currentRoute) => {
+  for (const menuElement of menuList) {
+    if (menuElement.path === currentRoute) {
+      initSelectedKeyPath.unshift(menuElement.key);
+      return true;
+    }
+
+    if (menuElement.children) {
+      initSelectedKeyPath.unshift(menuElement.key);
+
+      if (findMenuPath(menuElement.children, currentRoute)){
+        return true;
+      }
+
+      initSelectedKeyPath.shift();
+    }
   }
 
-  return menu.map(item => {
-    if (!item.name && !item?.routes || item.hideInMenu) {
-      return null;
-    }
+  return false;
+};
 
-    let result = {
-      name: item.name,
-      children: undefined,
-      path: item.path
+const BaseMenu: React.FC = () => {
+  const [path, setPath] = useState([]);
+
+  const intl = useIntl();
+  const {login: {locale}} = useStores();
+  const menu = useMemo(() => {
+
+    //遍历菜单数据，生成组件
+    const formatter = menuList => {
+      if (!menuList) {
+        return [];
+      }
+
+      return menuList.map(item => {
+        if (!item.name && !item?.routes || item.hideInMenu) {
+          return null;
+        }
+
+        let result = {
+          name: item.name,
+          label: item.name && intl.formatMessage({id: item.name}, item.name),
+          children: undefined,
+          path: item.path,
+          icon: item.icon && getIcon(item.icon),
+          key: item.path,
+        };
+
+        if (item.routes) {
+          result.children = formatter(item.routes);
+        }
+
+        if (!item.name) {
+          return result.children;
+        }
+
+        if (!result.children?.length) {
+          delete result.children;
+        }
+
+        return result;
+      }).filter(Boolean).flat(1);
     };
 
-    if (item.routes) {
-      result.children = formatter(item.routes);
-    }
+    return formatter(menuData);
+  }, [locale]);
 
-    if (!item.name) {
-      return result.children;
-    }
+  const location = useLocation();
+  useEffect(() => {
+    initSelectedKeyPath = [];
+    findMenuPath(menu, location.pathname);
+    setPath(initSelectedKeyPath);
+  }, []);
 
-    if (!result.children?.length) {
-      delete result.children;
-    }
-
-    return result;
-  }).filter(Boolean).flat(1);
-};
-
-//路径
-const getLink = ({path, name}) => {
-  return <Link to={path || null}>{name}</Link>;
-};
-
-const getIcon = () => { // 图标
-  return null; // <Icon type={icon} theme="outlined"/>
-};
-
-export interface BaseMenuProp {
-}
-
-const BaseMenu: React.FC<BaseMenuProp> = () => {
-  const [path, setPath] = useState(['000', '00']);
-
-  const handleClick = (ev) => {
-    console.log('menuClick', ev);
+  const navigate = useNavigate();
+  const handleClick = ev => {
     setPath(ev.keyPath);
+    navigate(ev.key);
+  };
+
+  const handleOpen = keyPath => {
+    setPath(keyPath);
   };
 
   return (
-    <Menu theme="dark"
+    <Menu
+      theme="dark"
       mode="inline"
-      defaultOpenKeys={path}
+      openKeys={path}
       selectedKeys={[path[0]]}
       onClick={handleClick}
-    >
-      {createMenu(formatter(menuData))}
-    </Menu>
+      onOpenChange={handleOpen}
+      items={menu}
+    />
   );
 };
 
-export default BaseMenu;
+export default observer(BaseMenu);

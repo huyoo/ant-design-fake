@@ -13,6 +13,7 @@
       .ant-dropdown-trigger {
         display: block;
         cursor: pointer;
+        padding: 0 8px;
 
         &:hover {
           background-color: rgba(0, 0, 0, .025);
@@ -20,8 +21,7 @@
       }
 
       .ant-avatar {
-        margin-top: -8px;
-        padding-right: 4px;
+        margin: -8px 8px 0 0;
       }
     }
   }
@@ -29,8 +29,10 @@
 
 .headerMenu{
   :global {
-    .ant-dropdown-menu-item .ant-dropdown-menu-title-content > span:last-of-type{
-      margin-left: 4px;
+    .ant-dropdown-menu-item .ant-dropdown-menu-title-content {
+      & > span:last-of-type, a > span:last-of-type {
+        margin-left: 4px;
+      }
     }
   }
 }

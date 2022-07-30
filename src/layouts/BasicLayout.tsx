@@ -5,13 +5,12 @@
  */
 import React, {useState} from "react";
 import {Outlet} from "react-router-dom";
-import {Layout as Lay} from "antd";
-import Layout from "antd/lib/layout/layout";
+import {Layout} from "antd";
 import SiderMenu from "../components/SideMenu";
 import ContentHeader from "../components/ContentHeader";
 import Foot from "../components/Footer";
 
-const {Content, Footer} = Lay;
+const {Content, Footer} = Layout;
 
 export interface BasicLayoutProp {
 }
@@ -24,10 +23,12 @@ const BasicLayout: React.FC<BasicLayoutProp> = () => {
   };
 
   return (
+
     <Layout style={{flexDirection: 'inherit'}}>
-      <SiderMenu collapsed={collapsed} />
+      <Layout.Sider width={256} collapsed={collapsed} />
+      <SiderMenu collapsed={collapsed} handleMenuCollapse={toggleMenu} />
       <Layout>
-        <ContentHeader collapsed={collapsed} handleMenuCollapse={toggleMenu} />
+        <ContentHeader />
         <Content>
           <Outlet />
         </Content>

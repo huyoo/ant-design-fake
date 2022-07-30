@@ -1,11 +1,12 @@
 import React, {ReactNode} from 'react';
 import ReactDOM from 'react-dom/client';
 import {HashRouter, Navigate, Route, Routes} from "react-router-dom";
-import './index.css';
 import 'antd/dist/antd.css';
 import {cloneDeep} from 'lodash';
+import {Provider} from 'mobx-react';
+import IntlControl from "@/IntlControl";
 import stores from './stores';
-import { Provider } from 'mobx-react';
+import './index.css';
 
 /** 生成路由 */
 const routes = cloneDeep(require('../config/route.config'));
@@ -74,11 +75,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(<React.StrictMode>
   <Provider {...stores}>
-    <HashRouter>
-      <Routes>
-        {render(routes)}
-      </Routes>
-    </HashRouter>
+    <IntlControl>
+      <HashRouter>
+        <Routes>
+          {render(routes)}
+        </Routes>
+      </HashRouter>
+    </IntlControl>
   </Provider>
 </React.StrictMode>);
 

@@ -3,7 +3,7 @@ import {Avatar, Dropdown, Menu} from "antd";
 import {LogoutOutlined, SettingOutlined, UserOutlined} from "@ant-design/icons";
 import style from './style.less';
 import { Link } from "react-router-dom";
-import {useStores} from "../../stores";
+import {useStores} from "@/stores";
 
 const UserMenu: React.FC = () => {
   const {login: {userInfo}} = useStores();
@@ -12,17 +12,17 @@ const UserMenu: React.FC = () => {
 
   const menu = (
     <Menu className={style.headerMenu}>
-      <Menu.Item>
+      <Menu.Item key="1">
         <UserOutlined />
         <span>个人中心</span>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item key="2">
         <SettingOutlined />
         <span>个人设置</span>
       </Menu.Item>
       <Menu.Divider />
-      <Menu.Item>
-        <Link to={'/login'}>
+      <Menu.Item key="3">
+        <Link to="/login">
           <LogoutOutlined />
           <span>退出登录</span>
         </Link>

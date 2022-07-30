@@ -9,13 +9,15 @@
     "analyze": "cross-env ANALYZE=1 node scripts/build.js"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.6.3",
+    "@ant-design/icons": "~4.7.0",
+    "@ant-design/compatible": "1.1.0",
     "prompts": "2.4.0",
     "react": "~18.1.0",
     "react-app-polyfill": "^2.0.0",
     "react-dom": "~18.1.0",
     "react-refresh": "^0.8.3",
     "react-router-dom": "~6.3.0",
+    "react-intl": "~6.0.5",
     "antd": "~4.20.6",
     "classnames": "^2.3.1",
     "lodash": "^4.17.21",
