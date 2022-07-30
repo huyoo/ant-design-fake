@@ -1,7 +1,6 @@
 import React from "react";
 import config from './typeConfig';
 import {Link} from "react-router-dom";
-// import intl from 'react-intl-universal'
 import {Col, Row} from "antd";
 import style from "./style.less";
 import {FormattedMessage} from "react-intl";

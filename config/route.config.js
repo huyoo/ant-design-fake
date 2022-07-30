@@ -13,36 +13,36 @@ module.exports = [
     component: './layouts/BasicLayout',
     routes: [
       {
-        name: 'Dashboard',
+        name: 'menu.dashboard',
         icon: "dashboard",
         path: '/dashboard',
         routes: [
           {
             path: "/dashboard/analysis",
             component: './pages/dashboard/analysis',
-            name: "分析页",
+            name: "menu.dashboard.analysis",
           },
         ]
       },
       {
-        name: '异常页',
+        name: 'menu.exception',
         icon: "warning",
         path: '/exception',
         routes: [
           {
             path: "/exception/403",
             component: './pages/exception/Exception403',
-            name: "403",
+            name: "menu.exception.not-permission",
           },
           {
             path: "/exception/404",
             component: './pages/exception/Exception404',
-            name: "404",
+            name: "menu.exception.not-find",
           },
           {
             path: "/exception/500",
             component: './pages/exception/Exception500',
-            name: "500",
+            name: "menu.exception.server-error",
           },
         ]
       }
