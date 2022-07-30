@@ -1,1 +1,0 @@
-(this["webpackJsonpant-design-fake"]=this["webpackJsonpant-design-fake"]||[]).push([[1],[]]);
