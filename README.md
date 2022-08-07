@@ -1,7 +1,8 @@
-# Ant Design Fake
+<h1 style="text-align: center;">Ant Design Fake</h1>
 
-使用 react 原生技术栈搭建的管理系统，仿照了 [ant-design-pro](https://pro.ant.design)， 这是 Antd Pro 的[预览地址](https://preview.pro.ant.design)。
-项目使用 Github Actions 自动打包，最终将部署到 Github Pages，这是部署后的 [访问地址](https://huyoo.github.io/ant-design-fake)。
+使用 react 原生技术栈搭建的管理系统，仿照了 [ant-design-pro](https://pro.ant.design)， 这是 Antd Pro 的[预览地址](https://preview.pro.ant.design)。  
+
+项目使用 Github Actions 自动打包，最终将部署到 Github Pages，这是部署后的[地址](https://huyoo.github.io/ant-design-fake).
 
 ## 项目重构中
 重构升级中，摒弃 class 组件，全部使用 hooks 开发，技术栈如下:
@@ -17,12 +18,13 @@ echarts
 ## 关注点
 - 使用 hooks 重构
 - ~~代码检查和风格统一~~
-- mobx
-- 登入登出
+- ~~mobx~~
+- ~~登入登出~~
 - 用户权限
 - ~~路由配置化，屏蔽菜单和 router 细节~~(需改进)
 - 移动端展示效果
-- 多语言、布局方式切换
+- ~~多语言~~
+- 主题、布局方式切换
 - ~~组件迁移~~(由独立组件库实现，[链接](https://github.com/huyoo/huyoo-ui))
    1. 表格下拉选择-TableSelect 
    2. cron配置器-CronBuilder
