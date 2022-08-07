@@ -1,4 +1,4 @@
-<h1 style="text-align: center;">Ant Design Fake</h1>
+<h1 align="center">Ant Design Fake</h1>
 
 使用 react 原生技术栈搭建的管理系统，仿照了 [ant-design-pro](https://pro.ant.design)， 这是 Antd Pro 的[预览地址](https://preview.pro.ant.design)。  
 
