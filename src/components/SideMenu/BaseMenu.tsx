@@ -37,7 +37,11 @@ const findMenuPath = (menuList, currentRoute) => {
   return false;
 };
 
-const BaseMenu: React.FC = () => {
+type BaseMenuProps = {
+  collapsed: Boolean
+}
+
+const BaseMenu: React.FC<BaseMenuProps> = ({collapsed}) => {
   const [path, setPath] = useState([]);
 
   const intl = useIntl();
@@ -88,7 +92,7 @@ const BaseMenu: React.FC = () => {
     initSelectedKeyPath = [];
     findMenuPath(menu, location.pathname);
     setPath(initSelectedKeyPath);
-  }, []);
+  }, [collapsed]);
 
   const navigate = useNavigate();
   const handleClick = ev => {

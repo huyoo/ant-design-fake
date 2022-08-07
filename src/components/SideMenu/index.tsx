@@ -19,7 +19,7 @@ const SideMenu: React.FC<SideMenuProp> = (props) => {
         <img src={logo} alt="logo" />
         <h1>Ant Design Fake</h1>
       </div>
-      <BaseMenu />
+      <BaseMenu collapsed={collapsed} />
 
       <div className="sider-link" onClick={handleMenuCollapse}>
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
