@@ -2,16 +2,29 @@ import React from "react";
 import {Avatar, Dropdown, Menu} from "antd";
 import {LogoutOutlined, SettingOutlined, UserOutlined} from "@ant-design/icons";
 import style from './style.less';
-import { Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useStores} from "@/stores";
 
 const UserMenu: React.FC = () => {
-  const {login: {userInfo}} = useStores();
+  const {login} = useStores();
+  const {userInfo} = login;
 
-  // const handleLogout;
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    login.logout();
+    navigate('/login');
+  };
+
+  const handleSelectMenu = (menuInfo) => {
+    const operateFn = {
+      3: handleLogout
+    };
+
+    operateFn[menuInfo.key]();
+  };
 
   const menu = (
-    <Menu className={style.headerMenu}>
+    <Menu className={style.headerMenu} onClick={handleSelectMenu}>
       <Menu.Item key="1">
         <UserOutlined />
         <span>个人中心</span>
@@ -22,10 +35,8 @@ const UserMenu: React.FC = () => {
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item key="3">
-        <Link to="/login">
-          <LogoutOutlined />
-          <span>退出登录</span>
-        </Link>
+        <LogoutOutlined />
+        <span>退出登录</span>
       </Menu.Item>
     </Menu>
   );

@@ -1,8 +1,3 @@
-/**
- * @DECS: 基础布局
- * @AUTH: hy
- * @DATE: 2021-08-17
- */
 import React, {useState} from "react";
 import {Outlet} from "react-router-dom";
 import {Layout} from "antd";
@@ -23,7 +18,6 @@ const BasicLayout: React.FC<BasicLayoutProp> = () => {
   };
 
   return (
-
     <Layout style={{flexDirection: 'inherit'}}>
       <Layout.Sider width={256} collapsed={collapsed} />
       <SiderMenu collapsed={collapsed} handleMenuCollapse={toggleMenu} />

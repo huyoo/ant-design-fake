@@ -54,6 +54,7 @@ const DEFAULT_USER = {
 
 class Login {
   userInfo: any = DEFAULT_USER;
+  isLogin: Boolean = true;
   locale: 'zh-CN';
 
   constructor() {
@@ -68,6 +69,7 @@ class Login {
       }
 
       res = cloneDeep(DEFAULT_USER);
+      this.isLogin = true;
     } else {
       return false;
     }
@@ -81,6 +83,9 @@ class Login {
       return;
     }
     this.locale = value;
+  }
+  logout() {
+    this.isLogin = false;
   }
 }
 
