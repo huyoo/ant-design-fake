@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from "react";
 import {throttle} from "lodash";
 import * as echarts from "echarts";
+import ResizeObserver from "resize-observer-polyfill";
 import {useMemorizedFn} from "@/utils/hooks";
 import {dateBeforeToday} from "@/pages/dashboard/analysis/util";
 
@@ -73,10 +74,11 @@ const ViewChart: React.FC = () => {
   }, 33));
 
   useEffect(() => {
-    window.addEventListener('resize', resizeChart);
+    const ro = new ResizeObserver(resizeChart);
+    ro.observe(ref.current);
 
     return () => {
-      window.removeEventListener('resize', resizeChart);
+      ro.unobserve(ref.current);
     };
   }, []);
 

@@ -4,7 +4,7 @@ import type {RangePickerProps} from "antd/es/date-picker/generatePicker";
 import type moment from 'moment';
 import * as echarts from "echarts";
 import {throttle} from "lodash";
-
+import ResizeObserver from "resize-observer-polyfill";
 import styles from '../styles.less';
 import {formatNumber} from "@/utils/tools";
 import {useMemorizedFn} from "@/utils/hooks";
@@ -110,10 +110,13 @@ const SalesCard: FC<SalesCardProps> = (
   }, 33));
 
   useEffect(() => {
-    window.addEventListener('resize', resizeChart);
+    const ro = new ResizeObserver(resizeChart);
+    ro.observe(saleRef.current);
+    ro.observe(viewRef.current);
 
     return () => {
-      window.removeEventListener('resize', resizeChart);
+      ro.unobserve(saleRef.current);
+      ro.unobserve(viewRef.current);
     };
   }, []);
 
