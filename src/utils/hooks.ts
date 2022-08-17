@@ -38,9 +38,10 @@ export const useResizeChart = (ref: MutableRefObject<any>):MutableRefObject<ECha
 
     ro.observe(ref.current);
 
-    return () => {
-      ro.unobserve(ref.current);
-    };
+    // TODO 卸载函数会报错
+    // return () => {
+    //   ro.unobserve(ref.current);
+    // };
   }, []);
 
   return chartInstance;

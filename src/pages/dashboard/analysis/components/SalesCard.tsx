@@ -114,10 +114,11 @@ const SalesCard: FC<SalesCardProps> = (
     ro.observe(saleRef.current);
     ro.observe(viewRef.current);
 
-    return () => {
-      ro.unobserve(saleRef.current);
-      ro.unobserve(viewRef.current);
-    };
+    // TODO 卸载函数会报错
+    // return () => {
+    //   ro.unobserve(saleRef.current);
+    //   ro.unobserve(viewRef.current);
+    // };
   }, []);
 
   // echarts 重新计算画布宽高
