@@ -1,11 +1,7 @@
 import React, {useEffect, useRef} from "react";
 import * as echarts from "echarts";
-import {throttle} from "lodash";
-import ResizeObserver from "resize-observer-polyfill";
-import {useMemorizedFn} from "@/utils/hooks";
+import {useResizeChart} from "@/utils/hooks";
 import {dateBeforeToday} from "@/pages/dashboard/analysis/util";
-
-let saleChartInstance = null;
 
 const chartOptions = {
   color: ['#6395f9'],
@@ -39,9 +35,10 @@ const chartOptions = {
 
 const PaymentNumber: React.FC = () => {
   const ref = useRef(null);
+  const saleChartInstance = useResizeChart(ref);
 
   useEffect(() => {
-    saleChartInstance = echarts.init(ref.current);
+    saleChartInstance.current = echarts.init(ref.current);
 
     const option = {
       ...chartOptions,
@@ -52,20 +49,7 @@ const PaymentNumber: React.FC = () => {
         },
       ],
     };
-    saleChartInstance.setOption(option);
-  }, []);
-
-  const resizeChart = useMemorizedFn(throttle(() => {
-    saleChartInstance && saleChartInstance.resize();
-  }, 33));
-
-  useEffect(() => {
-    const ro = new ResizeObserver(resizeChart);
-    ro.observe(ref.current);
-
-    return () => {
-      ro.unobserve(ref.current);
-    };
+    saleChartInstance.current.setOption(option);
   }, []);
 
   return <div ref={ref} style={{height: 46}} />;

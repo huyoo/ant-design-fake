@@ -25,6 +25,7 @@ echarts
 - 移动端展示效果
 - ~~多语言~~
 - 主题、布局方式切换
+- mock 数据
 - ~~组件迁移~~(由独立组件库实现，[链接](https://github.com/huyoo/huyoo-ui))
    1. 表格下拉选择-TableSelect 
    2. cron配置器-CronBuilder
