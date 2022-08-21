@@ -26,6 +26,7 @@ export const useMemorizedFn = <T = Function>(fn: T): T => {
  * @param {MutableRefObject} ref dom Ref
  * @return {MutableRefObject} ref 存储的 echarts 图标实例
  */
+// TODO 需要移除
 export const useResizeChart = (ref: MutableRefObject<any>):MutableRefObject<EChartsType> => {
   const chartInstance = useRef(null);
 

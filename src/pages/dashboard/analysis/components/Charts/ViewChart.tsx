@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from "react";
 import * as echarts from "echarts";
-import {useResizeChart} from "@/utils/hooks";
+import ResizeObserver from "rc-resize-observer";
+import {EChartsType} from "echarts";
 import {dateBeforeToday} from "@/pages/dashboard/analysis/util";
 
 const chartOptions = {
@@ -35,10 +36,10 @@ const chartOptions = {
 
 const ViewChart: React.FC = () => {
   const ref = useRef(null);
-  const saleChartInstance = useResizeChart(ref);
+  const instance = useRef<EChartsType>(null);
 
   useEffect(() => {
-    saleChartInstance.current = echarts.init(ref.current);
+    instance.current = echarts.init(ref.current);
 
     const option = {
       ...chartOptions,
@@ -63,10 +64,14 @@ const ViewChart: React.FC = () => {
         },
       ],
     };
-    saleChartInstance.current.setOption(option);
+    instance.current.setOption(option);
   }, []);
 
-  return <div ref={ref} style={{height: 46}} />;
+  return (
+    <ResizeObserver onResize={() => instance.current.resize()}>
+      <div ref={ref} style={{height: 46}} />
+    </ResizeObserver>
+  );
 };
 
 export default ViewChart;
