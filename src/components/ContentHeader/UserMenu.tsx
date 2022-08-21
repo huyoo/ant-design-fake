@@ -1,34 +1,51 @@
-import React from "react";
+import React, {useMemo} from "react";
 import {Avatar, Dropdown, Menu} from "antd";
 import {LogoutOutlined, SettingOutlined, UserOutlined} from "@ant-design/icons";
 import style from './style.less';
-import { Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useStores} from "@/stores";
+import {ItemType} from "antd/lib/menu/hooks/useItems";
+
+const menuOptions:ItemType[] = [
+  {
+    key: '1',
+    label: '个人中心',
+    icon: <UserOutlined />
+  }, {
+    key: '2',
+    label: '个人设置',
+    icon: <SettingOutlined />
+  }, {
+    type: 'divider',
+  },
+  {
+    key: '3',
+    label: '退出登录',
+    icon: <LogoutOutlined />
+  }
+];
 
 const UserMenu: React.FC = () => {
-  const {login: {userInfo}} = useStores();
+  const {login} = useStores();
+  const {userInfo, locale} = login;
 
-  // const handleLogout;
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    login.logout();
+    navigate('/login');
+  };
 
-  const menu = (
-    <Menu className={style.headerMenu}>
-      <Menu.Item key="1">
-        <UserOutlined />
-        <span>个人中心</span>
-      </Menu.Item>
-      <Menu.Item key="2">
-        <SettingOutlined />
-        <span>个人设置</span>
-      </Menu.Item>
-      <Menu.Divider />
-      <Menu.Item key="3">
-        <Link to="/login">
-          <LogoutOutlined />
-          <span>退出登录</span>
-        </Link>
-      </Menu.Item>
-    </Menu>
-  );
+  const handleSelectMenu = (menuInfo) => {
+    const operateFn = {
+      3: handleLogout
+    };
+
+    operateFn[menuInfo.key]?.();
+  };
+
+  const menu = useMemo(() => {
+    return <Menu className={style.headerMenu} items={menuOptions} onClick={handleSelectMenu} />;
+  }, [locale]);
 
   return (
     <Dropdown overlay={menu}>

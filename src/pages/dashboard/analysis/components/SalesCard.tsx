@@ -3,11 +3,9 @@ import {Card, Col, DatePicker, Row, Tabs} from "antd";
 import type {RangePickerProps} from "antd/es/date-picker/generatePicker";
 import type moment from 'moment';
 import * as echarts from "echarts";
-import {throttle} from "lodash";
-
+import ResizeObserver from "rc-resize-observer";
 import styles from '../styles.less';
 import {formatNumber} from "@/utils/tools";
-import {useMemorizedFn} from "@/utils/hooks";
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
 export type TimeType = 'today' | 'week' | 'month' | 'year';
@@ -104,18 +102,10 @@ const SalesCard: FC<SalesCardProps> = (
     viewChartInstance.setOption(viewOption);
   }, []);
 
-  const resizeChart = useMemorizedFn(throttle(() => {
-    saleChartInstance && saleChartInstance.resize();
-    viewChartInstance && viewChartInstance.resize();
-  }, 33));
-
-  useEffect(() => {
-    window.addEventListener('resize', resizeChart);
-
-    return () => {
-      window.removeEventListener('resize', resizeChart);
-    };
-  }, []);
+  const resizeChart = () => {
+    saleChartInstance.resize();
+    viewChartInstance.resize();
+  };
 
   // echarts 重新计算画布宽高
   const handleTabChange = () => {
@@ -179,7 +169,9 @@ const SalesCard: FC<SalesCardProps> = (
             <Row>
               <Col xl={16} lg={12} md={12} sm={24} xs={24}>
                 <div className={styles.salesBar}>
-                  <div ref={saleRef} style={{height: 320}} />
+                  <ResizeObserver onResize={resizeChart}>
+                    <div ref={saleRef} style={{height: 320}} />
+                  </ResizeObserver>
                 </div>
               </Col>
               <Col xl={8} lg={12} md={12} sm={24} xs={24}>
@@ -194,7 +186,9 @@ const SalesCard: FC<SalesCardProps> = (
             <Row>
               <Col xl={16} lg={12} md={12} sm={24} xs={24}>
                 <div className={styles.salesBar}>
-                  <div ref={viewRef} style={{height: 320}} />
+                  <ResizeObserver onResize={resizeChart}>
+                    <div ref={viewRef} style={{height: 320}} />
+                  </ResizeObserver>
                 </div>
               </Col>
               <Col xl={8} lg={12} md={12} sm={24} xs={24}>
