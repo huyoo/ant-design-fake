@@ -2,7 +2,8 @@ module.exports = [
   {
     path: '/',
     redirect: '/dashboard/analysis'
-  }, {
+  },
+  {
     path: '/',
     component: './layouts/AuthorizedLayout',
     routes: [
@@ -11,7 +12,8 @@ module.exports = [
         path: '/login',
         component: './pages/Login',
         hideInMenu: true
-      }, {
+      },
+      {
       path: '/',
       component: './layouts/BasicLayout',
       routes: [
@@ -24,6 +26,7 @@ module.exports = [
               path: "/dashboard/analysis",
               component: './pages/dashboard/analysis',
               name: "menu.dashboard.analysis",
+              authority: ['admin'],
             },
           ]
         },
@@ -50,6 +53,6 @@ module.exports = [
           ]
         }
       ]
-    },],
+    }],
   }
 ]
