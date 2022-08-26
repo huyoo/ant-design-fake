@@ -26,8 +26,13 @@ module.exports = [
               path: "/dashboard/analysis",
               component: './pages/dashboard/analysis',
               name: "menu.dashboard.analysis",
-              authority: ['admin'],
             },
+            {
+              path: "/dashboard/workplace",
+              component: './pages/dashboard/workplace',
+              name: "menu.dashboard.workplace",
+              authority: ['admin'],
+            }
           ]
         },
         {

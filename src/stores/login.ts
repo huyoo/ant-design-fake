@@ -51,7 +51,7 @@ const DEFAULT_USER = {
   },
   "address": "西湖区工专路 77 号",
   "phone": "0752-268888888",
-  "role": 'user'
+  "role": 'admin'
 };
 
 class Login {
@@ -72,6 +72,7 @@ class Login {
       }
 
       res = cloneDeep(DEFAULT_USER);
+      res.role = value.username;
       this.isLogin = true;
     } else {
       return false;
@@ -89,6 +90,7 @@ class Login {
     intlStorage.setValue(value);
     this.locale = value;
   }
+
   logout() {
     this.isLogin = false;
   }
