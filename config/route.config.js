@@ -54,5 +54,9 @@ module.exports = [
         }
       ]
     }],
-  }
+  },
+  {
+    path: "/*",
+    redirect: '/exception/404',
+  },
 ]
