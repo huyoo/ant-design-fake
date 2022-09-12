@@ -55,3 +55,27 @@ export function getTimeDistance(type: 'today' | 'week' | 'month' | 'year'): Rang
 
   return [moment(`${year}-01-01 00:00:00`), moment(`${year}-12-31 23:59:59`)];
 }
+
+export const localStorageUtil = {
+  setItem(key, value) {
+    localStorage.setItem(key, value);
+  },
+  getItem(key) {
+    return localStorage.getItem(key);
+  },
+  clear() {
+    localStorage.clear();
+  }
+};
+
+/**
+ * 多语言 localStorage 存储
+ */
+export const intlStorage = {
+  setValue(value) {
+    localStorageUtil.setItem('fake-locale-value', value);
+  },
+  getValue() {
+    return localStorageUtil.getItem('fake-locale-value') || 'zh-CN';
+  }
+};

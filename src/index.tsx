@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import {HashRouter, Navigate, Route, Routes} from "react-router-dom";
 import 'antd/dist/antd.css';
 import {cloneDeep} from 'lodash';
-import {Provider} from 'mobx-react';
+import {observer, Provider} from 'mobx-react';
 import IntlControl from "@/IntlControl";
-import stores from './stores';
+import stores, {useStores} from './stores';
 import './index.css';
 
 /** 生成路由 */
@@ -39,7 +39,7 @@ const routeLoad = (menuList) => {
   }
 };
 
-const render = (menuList) => {
+const render = (menuList, user) => {
   let route: ReactNode[] = [];
 
   menuList.forEach((item, index) => {
@@ -48,14 +48,18 @@ const render = (menuList) => {
       return;
     }
 
+    if (item?.authority?.length && user?.role && item.authority.includes(user.role) === false) {
+      return;
+    }
+
     if (item.routes?.length) {
       if (item.component) {
         const Page = item.component;
 
-        route.push(<Route key={item.name + index} path={item.path} element={<Page />}>{render(item.routes)}</Route>);
+        route.push(<Route key={item.name + index} path={item.path} element={<Page />}>{render(item.routes, user)}</Route>);
         return;
       }
-      route = route.concat(render(item.routes));
+      route = route.concat(render(item.routes, user));
       return;
     }
 
@@ -70,17 +74,26 @@ const render = (menuList) => {
 
 routeLoad(routes);
 
+// 监听 登录用户 的权限
+const App = observer(() => {
+  const {login:{userInfo}} = useStores();
+
+  return (
+    <HashRouter>
+      <Routes>
+        {render(routes, userInfo)}
+      </Routes>
+    </HashRouter>
+  );
+});
+
 /** 渲染 */
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(<React.StrictMode>
   <Provider {...stores}>
     <IntlControl>
-      <HashRouter>
-        <Routes>
-          {render(routes)}
-        </Routes>
-      </HashRouter>
+      <App />
     </IntlControl>
   </Provider>
 </React.StrictMode>);

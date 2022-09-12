@@ -45,7 +45,7 @@ const BaseMenu: React.FC<BaseMenuProps> = ({collapsed}) => {
   const [path, setPath] = useState([]);
 
   const intl = useIntl();
-  const {login: {locale}} = useStores();
+  const {login: {locale, userInfo}} = useStores();
   const menu = useMemo(() => {
 
     //遍历菜单数据，生成组件
@@ -56,6 +56,11 @@ const BaseMenu: React.FC<BaseMenuProps> = ({collapsed}) => {
 
       return menuList.map(item => {
         if (!item.name && !item?.routes || item.hideInMenu) {
+          return null;
+        }
+
+        // 判断登录用户角色是否允许查看页面
+        if (item?.authority?.length && !item.authority.includes(userInfo.role)){
           return null;
         }
 
@@ -70,6 +75,10 @@ const BaseMenu: React.FC<BaseMenuProps> = ({collapsed}) => {
 
         if (item.routes) {
           result.children = formatter(item.routes);
+
+          if (!result.children?.length) {
+            return null;
+          }
         }
 
         if (!item.name) {
@@ -85,7 +94,7 @@ const BaseMenu: React.FC<BaseMenuProps> = ({collapsed}) => {
     };
 
     return formatter(menuData);
-  }, [locale]);
+  }, [locale, userInfo]);
 
   const location = useLocation();
   useEffect(() => {

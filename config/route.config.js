@@ -2,7 +2,8 @@ module.exports = [
   {
     path: '/',
     redirect: '/dashboard/analysis'
-  }, {
+  },
+  {
     path: '/',
     component: './layouts/AuthorizedLayout',
     routes: [
@@ -11,7 +12,8 @@ module.exports = [
         path: '/login',
         component: './pages/Login',
         hideInMenu: true
-      }, {
+      },
+      {
       path: '/',
       component: './layouts/BasicLayout',
       routes: [
@@ -25,6 +27,12 @@ module.exports = [
               component: './pages/dashboard/analysis',
               name: "menu.dashboard.analysis",
             },
+            {
+              path: "/dashboard/workplace",
+              component: './pages/dashboard/workplace',
+              name: "menu.dashboard.workplace",
+              authority: ['admin'],
+            }
           ]
         },
         {
@@ -50,6 +58,10 @@ module.exports = [
           ]
         }
       ]
-    },],
-  }
+    }],
+  },
+  {
+    path: "/*",
+    redirect: '/exception/404',
+  },
 ]

@@ -1,5 +1,6 @@
 import {makeAutoObservable} from "mobx";
 import {cloneDeep} from "lodash";
+import {intlStorage} from "@/utils/tools";
 
 const DEFAULT_USER = {
   "name": "Serati Ma",
@@ -49,16 +50,18 @@ const DEFAULT_USER = {
     }
   },
   "address": "西湖区工专路 77 号",
-  "phone": "0752-268888888"
+  "phone": "0752-268888888",
+  "role": 'admin'
 };
 
 class Login {
   userInfo: any = DEFAULT_USER;
   isLogin: Boolean = true;
-  locale: 'zh-CN';
+  locale: string = 'zh-CN';
 
   constructor() {
     makeAutoObservable(this);
+    this.locale = intlStorage.getValue();
   }
 
   async login(value) {
@@ -69,6 +72,7 @@ class Login {
       }
 
       res = cloneDeep(DEFAULT_USER);
+      res.role = value.username;
       this.isLogin = true;
     } else {
       return false;
@@ -82,8 +86,11 @@ class Login {
     if (!value) {
       return;
     }
+
+    intlStorage.setValue(value);
     this.locale = value;
   }
+
   logout() {
     this.isLogin = false;
   }
